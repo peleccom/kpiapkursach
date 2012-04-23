@@ -30,20 +30,14 @@ Form1->Close();
 
 void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 {
- //ShowPage();
+ doc->ShowContent(Form1->WebBrowser1,Form1->RichEdit1->Lines->Text);
+
+
 }
 //---------------------------------------------------------------------------
 
 
 
-void __fastcall TForm1::FormShow(TObject *Sender)
-{
-if (NShowTree->Checked) {
-DOMTreeForm->Show();
-
-}
-}
-//---------------------------------------------------------------------------
 
 
 
@@ -72,4 +66,16 @@ void __fastcall TForm1::FormDestroy(TObject *Sender)
 delete doc;
 }
 //---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::NSaveDocumentClick(TObject *Sender)
+{
+if (OpenDocumentDialog->Execute())
+	{
+		doc->SaveFile(SaveDocumentDialog->FileName);
+	}
+}
+//---------------------------------------------------------------------------
+
 

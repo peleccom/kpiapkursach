@@ -11,12 +11,10 @@ class HTMLDocument
 	String infilename;
    public:
 	void OpenFile(String filename);
+	void SaveFile(String filename);
 	void LoadContent();
-	void ShowContent(TWebBrowser *wb, String HTMLCode);
+	void ShowContent(TCppWebBrowser *wb, String HTMLCode);
 };
-
-
-void ShowPage();
 
 
 

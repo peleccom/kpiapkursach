@@ -14,7 +14,6 @@ object Form1: TForm1
   OldCreateOrder = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
@@ -32,7 +31,6 @@ object Form1: TForm1
     Height = 33
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 672
   end
   object RichEdit1: TRichEdit
     Left = 0
@@ -50,22 +48,6 @@ object Form1: TForm1
     TabOrder = 1
     OnChange = RichEdit1Change
   end
-  object WebBrowser1: TWebBrowser
-    Left = 340
-    Top = 33
-    Width = 329
-    Height = 420
-    Align = alClient
-    TabOrder = 2
-    ExplicitLeft = 334
-    ExplicitTop = 39
-    ControlData = {
-      4C00000001220000692B00000000000000000000000000000000000000000000
-      000000004C000000000000000000000001000000E0D057007335CF11AE690800
-      2B2E126208000000000000004C0000000114020000000000C000000000000046
-      8000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000100000000000000000000000000000000000000}
-  end
   object TreeView1: TTreeView
     Left = 669
     Top = 33
@@ -73,10 +55,25 @@ object Form1: TForm1
     Height = 420
     Align = alRight
     Indent = 19
+    TabOrder = 2
+  end
+  object WebBrowser1: TCppWebBrowser
+    Left = 340
+    Top = 33
+    Width = 329
+    Height = 420
+    Align = alClient
     TabOrder = 3
-    ExplicitLeft = 678
-    ExplicitTop = 39
-    ExplicitHeight = 97
+    ExplicitLeft = 346
+    ExplicitTop = 128
+    ExplicitWidth = 300
+    ExplicitHeight = 150
+    ControlData = {
+      4C00000001220000692B00000000000000000000000000000000000000000000
+      000000004C000000000000000000000001000000E0D057007335CF11AE690800
+      2B2E126208000000000000004C0000000114020000000000C000000000000046
+      8000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000100000000000000000000000000000000000000}
   end
   object MainMenu1: TMainMenu
     Left = 640
@@ -87,8 +84,12 @@ object Form1: TForm1
         Caption = '&'#1054#1090#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
         OnClick = NOpenDocumentClick
       end
-      object N8: TMenuItem
+      object NSaveDocument: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
+        OnClick = NSaveDocumentClick
+      end
+      object N3: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
       end
       object N9: TMenuItem
         Caption = #1054#1090#1082#1088#1099#1090#1100' '#1096#1072#1073#1083#1086#1085
@@ -101,22 +102,11 @@ object Form1: TForm1
         OnClick = NCloseClick
       end
     end
-    object N3: TMenuItem
-      Caption = '&'#1042#1080#1076
-      object NShowTree: TMenuItem
-        AutoCheck = True
-        Caption = #1054#1090#1086#1073#1088#1072#1078#1072#1090#1100' '#1076#1077#1088#1077#1074#1086
-        Checked = True
-      end
-    end
     object N2: TMenuItem
       Caption = '&'#1055#1086#1084#1086#1097#1100
       object AboutAction: TMenuItem
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
         OnClick = AboutActionClick
-      end
-      object N6: TMenuItem
-        Caption = #1054#1073' '#1072#1074#1090#1086#1088#1077
       end
     end
   end

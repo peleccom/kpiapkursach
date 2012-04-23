@@ -28,26 +28,25 @@ __published:	// IDE-managed Components
 	TMenuItem *NClose;
 	TMenuItem *NOpenDocument;
 	TMenuItem *AboutAction;
-	TMenuItem *N6;
-	TMenuItem *N8;
+	TMenuItem *NSaveDocument;
 	TMenuItem *N9;
 	TMenuItem *N10;
 	TControlBar *ControlBar1;
 	TRichEdit *RichEdit1;
 	TSplitter *Splitter1;
-	TWebBrowser *WebBrowser1;
-	TMenuItem *N3;
-	TMenuItem *NShowTree;
 	TTreeView *TreeView1;
 	TOpenDialog *OpenDocumentDialog;
 	TSaveDialog *SaveDocumentDialog;
+	TCppWebBrowser *WebBrowser1;
+	TMenuItem *N3;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall NCloseClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
-	void __fastcall FormShow(TObject *Sender);
 	void __fastcall NOpenDocumentClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
+	void __fastcall NSaveDocumentClick(TObject *Sender);
+
 private:	// User declarations
 HTMLDocument *doc;
 public:		// User declarations
