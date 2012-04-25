@@ -56,6 +56,8 @@ __published:	// IDE-managed Components
 	void __fastcall NSaveDocumentClick(TObject *Sender);
 	void __fastcall NCloseDocumentClick(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
+	void __fastcall N4Click(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
 HTMLDocument *doc;

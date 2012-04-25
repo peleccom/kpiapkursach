@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -102,6 +103,7 @@ object Form1: TForm1
       object N4: TMenuItem
         Caption = #1057#1086#1079#1076#1072#1090#1100
         ShortCut = 16462
+        OnClick = N4Click
       end
       object NOpenDocument: TMenuItem
         Caption = '&'#1054#1090#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090

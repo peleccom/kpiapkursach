@@ -96,3 +96,17 @@ void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::N4Click(TObject *Sender)
+{
+ //TO DO check if document opened
+	TForm *form = new TForm(Application);
+	form->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+  Action = caFree; // необходима для автоуничтожения формы при закрытии
+}
+//---------------------------------------------------------------------------
+
