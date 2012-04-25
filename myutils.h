@@ -9,11 +9,18 @@ class HTMLDocument
 {
    private:
 	String infilename;
+	String html;
+	bool _changed;
+	TRichEdit *rcedit;
+	TCppWebBrowser *wb;
    public:
-	void OpenFile(String filename);
-	void SaveFile(String filename);
-	void LoadContent();
-	void ShowContent(TCppWebBrowser *wb, String HTMLCode);
+	HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser):
+												rcedit(rche),wb(wbrowser){};
+	void OpenFile(const String &filename);
+	void SaveFile(const String &filename);
+	void ShowContent(const String &HTMLCode);
+	bool changed(); // content changed ?
+	void Update(const String &html); // every time then update content
 };
 
 

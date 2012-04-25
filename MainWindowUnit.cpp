@@ -23,14 +23,17 @@ AboutBox->ShowModal();
 //---------------------------------------------------------------------------
 void __fastcall TForm1::NCloseClick(TObject *Sender)
 {
-Form1->Close();
+if (doc->changed()) {
+/// ask acknowl. to close
+
+}
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 {
- doc->ShowContent(Form1->WebBrowser1,Form1->RichEdit1->Lines->Text);
+ doc->Update(Form1->RichEdit1->Lines->Text);
 
 
 }
@@ -50,14 +53,14 @@ void __fastcall TForm1::NOpenDocumentClick(TObject *Sender)
 if (OpenDocumentDialog->Execute())
 	{
 		doc->OpenFile(OpenDocumentDialog->FileName);
-		doc->ShowContent(Form1->WebBrowser1,Form1->RichEdit1->Lines->Text);
+		doc->ShowContent(Form1->RichEdit1->Lines->Text);
 	}
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-doc= new HTMLDocument();
+doc= new HTMLDocument(Form1->RichEdit1, Form1->WebBrowser1);
 }
 //---------------------------------------------------------------------------
 

@@ -80,9 +80,21 @@ object Form1: TForm1
     Top = 352
     object N1: TMenuItem
       Caption = '&'#1060#1072#1081#1083
+      object N4: TMenuItem
+        Caption = #1057#1086#1079#1076#1072#1090#1100
+      end
       object NOpenDocument: TMenuItem
         Caption = '&'#1054#1090#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
         OnClick = NOpenDocumentClick
+      end
+      object N9: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1096#1072#1073#1083#1086#1085
+      end
+      object N6: TMenuItem
+        Caption = #1047#1072#1082#1088#1099#1090#1100
+      end
+      object N7: TMenuItem
+        Caption = '-'
       end
       object NSaveDocument: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
@@ -91,11 +103,11 @@ object Form1: TForm1
       object N3: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
       end
-      object N9: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1096#1072#1073#1083#1086#1085
-      end
       object N10: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1096#1072#1073#1083#1086#1085
+      end
+      object N5: TMenuItem
+        Caption = '-'
       end
       object NClose: TMenuItem
         Caption = #1042#1099#1093#1086#1076

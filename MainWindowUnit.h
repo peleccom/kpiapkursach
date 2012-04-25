@@ -39,6 +39,10 @@ __published:	// IDE-managed Components
 	TSaveDialog *SaveDocumentDialog;
 	TCppWebBrowser *WebBrowser1;
 	TMenuItem *N3;
+	TMenuItem *N4;
+	TMenuItem *N5;
+	TMenuItem *N6;
+	TMenuItem *N7;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall NCloseClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);

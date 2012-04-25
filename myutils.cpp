@@ -6,29 +6,31 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #include "mshtml.h"
-void HTMLDocument::OpenFile(String filename)
+void HTMLDocument::OpenFile(const String &filename)
 {
 	infilename = filename;
-	LoadContent();
+	wb->Navigate(filename.c_str());
+	while (wb->ReadyState < ::READYSTATE_INTERACTIVE)
+		Application->ProcessMessages();
+	rcedit->Lines->Clear();
+	rcedit->Lines->LoadFromFile(infilename);
+	_changed = false;
+	wb->Silent = true;
 }
 
-void HTMLDocument::LoadContent()
-{
-Form1->RichEdit1->Lines->Clear();
-Form1->RichEdit1->Lines->LoadFromFile(infilename);
+
+void HTMLDocument::Update(const String &html){
+	this->html = html;
+	_changed = true;
 }
 
 
 
 void LoadHtmlFromString(TCppWebBrowser *pCppWebBrowser,
- String &str)
+ const String &str)
  {
 IHTMLDocument2* pHTMLDocument;
    IHTMLElement* pElement;
-   pCppWebBrowser->Silent = true;
-   pCppWebBrowser->Navigate(WideString("about:blank").c_bstr());
-   while (pCppWebBrowser->ReadyState < ::READYSTATE_INTERACTIVE)
-	   Application->ProcessMessages();
    if (FAILED(pCppWebBrowser->Document->QueryInterface(IID_IHTMLDocument2, (LPVOID*) &pHTMLDocument))) return;
    if (FAILED(pHTMLDocument->get_body(&pElement))) return;
    pElement->put_innerHTML(str.c_str());
@@ -36,16 +38,20 @@ IHTMLDocument2* pHTMLDocument;
    pHTMLDocument->Release();
  }
 
-void HTMLDocument::ShowContent(TCppWebBrowser *wb, String HTMLCode)
+void HTMLDocument::ShowContent(const String &HTMLCode)
 {
 	LoadHtmlFromString(wb, HTMLCode) ;
 
 }
-void HTMLDocument::SaveFile(String filename)
+void HTMLDocument::SaveFile(const String &filename)
 {
 	Form1->RichEdit1->Lines->SaveToFile(filename);
+	_changed = false;
 }
 
+bool HTMLDocument::changed(){
+	return _changed;
+}
 
 /*TStringList *ss = new TStringList;
 ss->Text = Form1->RichEdit1->Text;
