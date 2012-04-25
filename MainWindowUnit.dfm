@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
@@ -94,8 +95,8 @@ object Form1: TForm1
       00000000000000000100000000000000000000000000000000000000}
   end
   object MainMenu1: TMainMenu
-    Left = 640
-    Top = 352
+    Left = 616
+    Top = 256
     object N1: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object N4: TMenuItem
@@ -108,8 +109,9 @@ object Form1: TForm1
       object N9: TMenuItem
         Caption = #1054#1090#1082#1088#1099#1090#1100' '#1096#1072#1073#1083#1086#1085
       end
-      object N6: TMenuItem
+      object NCloseDocument: TMenuItem
         Caption = #1047#1072#1082#1088#1099#1090#1100
+        OnClick = NCloseDocumentClick
       end
       object N7: TMenuItem
         Caption = '-'
@@ -146,6 +148,7 @@ object Form1: TForm1
     Top = 64
   end
   object SaveDocumentDialog: TSaveDialog
+    Filter = #1042#1089#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1084#1099#1077' '#1092#1086#1088#1084#1072#1090#1099'|*.html;*.txt;*.htm'
     Left = 32
     Top = 112
   end

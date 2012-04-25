@@ -23,10 +23,7 @@ AboutBox->ShowModal();
 //---------------------------------------------------------------------------
 void __fastcall TForm1::NCloseClick(TObject *Sender)
 {
-if (doc->changed()) {
-/// ask acknowl. to close
-
-}
+//
 }
 //---------------------------------------------------------------------------
 
@@ -74,7 +71,7 @@ delete doc;
 
 void __fastcall TForm1::NSaveDocumentClick(TObject *Sender)
 {
-if (OpenDocumentDialog->Execute())
+if (SaveDocumentDialog->Execute())
 	{
 		doc->SaveFile(SaveDocumentDialog->FileName);
 	}
@@ -82,4 +79,21 @@ if (OpenDocumentDialog->Execute())
 //---------------------------------------------------------------------------
 
 
+
+void __fastcall TForm1::NCloseDocumentClick(TObject *Sender)
+{
+	Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
+{
+	if (doc->changed()) {
+		ShowMessage("Not saved");
+		CanClose = false;
+	}
+	else
+	CanClose = true;
+}
+//---------------------------------------------------------------------------
 

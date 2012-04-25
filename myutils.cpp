@@ -48,8 +48,10 @@ void HTMLDocument::ShowContent(const String &HTMLCode)
 
 }
 void HTMLDocument::SaveFile(const String &filename)
-{
-	Form1->RichEdit1->Lines->SaveToFile(filename);
+{	TStringList *sl = new TStringList;
+	sl->Text = rcedit->Text;
+	sl->SaveToFile(filename);
+	delete sl;
 	_changed = false;
 }
 
@@ -64,11 +66,7 @@ HTMLDocument::HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser):
 	wb->Navigate(WideString("about:blank").c_bstr());
 	while (wb->ReadyState < ::READYSTATE_INTERACTIVE)
 		Application->ProcessMessages();
+	wb->Offline = true;
 };
-/*TStringList *ss = new TStringList;
-ss->Text = Form1->RichEdit1->Text;
-ss->SaveToFile(filename);
-//Form1->RichEdit1->Lines->SaveToFile("C:\\tmp\\1.html");
-Form1->WebBrowser1->Navigate(filename); /*
-}5 */
+
 

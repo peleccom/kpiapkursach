@@ -42,7 +42,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N3;
 	TMenuItem *N4;
 	TMenuItem *N5;
-	TMenuItem *N6;
+	TMenuItem *NCloseDocument;
 	TMenuItem *N7;
 	TSpeedButton *SpeedButton1;
 	TSpeedButton *SpeedButton2;
@@ -54,6 +54,8 @@ __published:	// IDE-managed Components
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
 	void __fastcall NSaveDocumentClick(TObject *Sender);
+	void __fastcall NCloseDocumentClick(TObject *Sender);
+	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 
 private:	// User declarations
 HTMLDocument *doc;
