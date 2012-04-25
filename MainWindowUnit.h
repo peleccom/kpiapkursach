@@ -16,6 +16,7 @@
 #include <DomTreeUnit.h>
 #include <Vcl.Dialogs.hpp>
 #include "myutils.h"
+#include <Vcl.Buttons.hpp>
 //---------------------------------------------------------------------------
 class HTMLDocument;
 //-------------------------------------------------------------------------
@@ -43,6 +44,9 @@ __published:	// IDE-managed Components
 	TMenuItem *N5;
 	TMenuItem *N6;
 	TMenuItem *N7;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
+	TSpeedButton *SpeedButton3;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall NCloseClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);

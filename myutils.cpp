@@ -18,14 +18,6 @@ void HTMLDocument::OpenFile(const String &filename)
 	wb->Silent = true;
 }
 
-
-void HTMLDocument::Update(const String &html){
-	this->html = html;
-	_changed = true;
-}
-
-
-
 void LoadHtmlFromString(TCppWebBrowser *pCppWebBrowser,
  const String &str)
  {
@@ -38,9 +30,21 @@ IHTMLDocument2* pHTMLDocument;
    pHTMLDocument->Release();
  }
 
+
+void HTMLDocument::Update(const String &html){
+	this->html = html;
+	_changed = true;
+	wb->Silent = true;
+	LoadHtmlFromString(wb, html) ;
+}
+
+
+
+
+
 void HTMLDocument::ShowContent(const String &HTMLCode)
 {
-	LoadHtmlFromString(wb, HTMLCode) ;
+
 
 }
 void HTMLDocument::SaveFile(const String &filename)
@@ -53,6 +57,14 @@ bool HTMLDocument::changed(){
 	return _changed;
 }
 
+HTMLDocument::HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser):
+												rcedit(rche),wb(wbrowser)
+{
+	wb->Silent = true;
+	wb->Navigate(WideString("about:blank").c_bstr());
+	while (wb->ReadyState < ::READYSTATE_INTERACTIVE)
+		Application->ProcessMessages();
+};
 /*TStringList *ss = new TStringList;
 ss->Text = Form1->RichEdit1->Text;
 ss->SaveToFile(filename);

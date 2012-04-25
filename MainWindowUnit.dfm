@@ -31,6 +31,24 @@ object Form1: TForm1
     Height = 33
     Align = alTop
     TabOrder = 0
+    object SpeedButton1: TSpeedButton
+      Left = 11
+      Top = 2
+      Width = 23
+      Height = 22
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 47
+      Top = 2
+      Width = 23
+      Height = 22
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 83
+      Top = 2
+      Width = 23
+      Height = 22
+    end
   end
   object RichEdit1: TRichEdit
     Left = 0
@@ -124,10 +142,11 @@ object Form1: TForm1
   end
   object OpenDocumentDialog: TOpenDialog
     Filter = #1042#1089#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1084#1099#1077' '#1092#1086#1088#1084#1072#1090#1099'|*.html;*.txt;*.htm'
-    Left = 208
-    Top = 65528
+    Left = 32
+    Top = 64
   end
   object SaveDocumentDialog: TSaveDialog
-    Left = 296
+    Left = 32
+    Top = 112
   end
 end
