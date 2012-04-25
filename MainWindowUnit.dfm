@@ -101,9 +101,11 @@ object Form1: TForm1
       Caption = '&'#1060#1072#1081#1083
       object N4: TMenuItem
         Caption = #1057#1086#1079#1076#1072#1090#1100
+        ShortCut = 16462
       end
       object NOpenDocument: TMenuItem
         Caption = '&'#1054#1090#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
+        ShortCut = 16463
         OnClick = NOpenDocumentClick
       end
       object N9: TMenuItem
@@ -111,6 +113,7 @@ object Form1: TForm1
       end
       object NCloseDocument: TMenuItem
         Caption = #1047#1072#1082#1088#1099#1090#1100
+        ShortCut = 16471
         OnClick = NCloseDocumentClick
       end
       object N7: TMenuItem
@@ -118,6 +121,7 @@ object Form1: TForm1
       end
       object NSaveDocument: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
+        ShortCut = 16467
         OnClick = NSaveDocumentClick
       end
       object N3: TMenuItem
@@ -148,6 +152,7 @@ object Form1: TForm1
     Top = 64
   end
   object SaveDocumentDialog: TSaveDialog
+    DefaultExt = 'html'
     Filter = #1042#1089#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1084#1099#1077' '#1092#1086#1088#1084#1072#1090#1099'|*.html;*.txt;*.htm'
     Left = 32
     Top = 112

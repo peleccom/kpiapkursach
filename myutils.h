@@ -17,7 +17,6 @@ class HTMLDocument
 	HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser);
 	void OpenFile(const String &filename);
 	void SaveFile(const String &filename);
-	void ShowContent(const String &HTMLCode);
 	bool changed(); // content changed ?
 	void Update(const String &html); // every time then update content
 };

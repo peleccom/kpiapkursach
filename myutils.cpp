@@ -38,15 +38,6 @@ void HTMLDocument::Update(const String &html){
 	LoadHtmlFromString(wb, html) ;
 }
 
-
-
-
-
-void HTMLDocument::ShowContent(const String &HTMLCode)
-{
-
-
-}
 void HTMLDocument::SaveFile(const String &filename)
 {	TStringList *sl = new TStringList;
 	sl->Text = rcedit->Text;

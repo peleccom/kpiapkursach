@@ -50,7 +50,6 @@ void __fastcall TForm1::NOpenDocumentClick(TObject *Sender)
 if (OpenDocumentDialog->Execute())
 	{
 		doc->OpenFile(OpenDocumentDialog->FileName);
-		doc->ShowContent(Form1->RichEdit1->Lines->Text);
 	}
 }
 //---------------------------------------------------------------------------
