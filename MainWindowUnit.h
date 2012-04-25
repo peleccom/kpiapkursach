@@ -61,6 +61,7 @@ __published:	// IDE-managed Components
 
 private:	// User declarations
 HTMLDocument *doc;
+String FormTitle;
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };
