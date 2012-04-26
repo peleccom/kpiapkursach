@@ -47,6 +47,8 @@ __published:	// IDE-managed Components
 	TSpeedButton *SpeedButton1;
 	TSpeedButton *SpeedButton2;
 	TSpeedButton *SpeedButton3;
+	TMenuItem *N6;
+	TMenuItem *DOM1;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall NCloseClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
@@ -58,6 +60,10 @@ __published:	// IDE-managed Components
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall N4Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall SpeedButton1Click(TObject *Sender);
+	void __fastcall WebBrowser1DownloadComplete(TObject *Sender);
+	void __fastcall DOM1Click(TObject *Sender);
+
 
 private:	// User declarations
 HTMLDocument *doc;

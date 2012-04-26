@@ -2,7 +2,7 @@
 
 #include <vcl.h>
 #pragma hdrstop
-
+#include <mshtml.h>
 #include "MainWindowUnit.h"
 #include "About.h"
 //---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ ShowMessage("Закрывает все активные окна");
 
 void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 {
- doc->Update(Form1->RichEdit1->Lines->Text);
+ doc->Update(RichEdit1->Lines->Text);
 
 
 }
@@ -58,7 +58,7 @@ if (OpenDocumentDialog->Execute())
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-doc= new HTMLDocument(Form1->RichEdit1, Form1->WebBrowser1);
+doc= new HTMLDocument(RichEdit1, WebBrowser1);
 FormTitle = "Редактор HTML - " ;
 }
 //---------------------------------------------------------------------------
@@ -112,7 +112,7 @@ void __fastcall TForm1::N4Click(TObject *Sender)
 {
  //TO DO check if document opened
 	TForm1 *form = new TForm1(Application);
-	form->Caption = FormTitle+"Безымянный";
+	form->Caption = FormTitle+L"Безымянный";
 	form->Show();
 }
 //---------------------------------------------------------------------------
@@ -120,6 +120,35 @@ void __fastcall TForm1::N4Click(TObject *Sender)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
   Action = caFree; // необходима для автоуничтожения формы при закрытии
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SpeedButton1Click(TObject *Sender)
+{
+ShowMessage(L"Выполнили действие с выделенным текстом..");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
+{
+	IHTMLDocument2* doc;    //This interface is defined in mshtml.h
+
+	HRESULT hr;
+	hr = WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&doc);
+	if(SUCCEEDED(hr))
+	{
+		doc->put_designMode(L"On");
+		doc->Release();            //Release the object
+
+	}
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::DOM1Click(TObject *Sender)
+{
+DOM1->Checked = ! DOM1->Checked;
+TreeView1->Visible = DOM1->Checked;
 }
 //---------------------------------------------------------------------------
 

@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' HTML'
   ClientHeight = 453
-  ClientWidth = 790
+  ClientWidth = 798
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  Visible = True
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -29,15 +30,17 @@ object Form1: TForm1
   object ControlBar1: TControlBar
     Left = 0
     Top = 0
-    Width = 790
+    Width = 798
     Height = 33
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 790
     object SpeedButton1: TSpeedButton
       Left = 11
       Top = 2
       Width = 23
       Height = 22
+      OnClick = SpeedButton1Click
     end
     object SpeedButton2: TSpeedButton
       Left = 47
@@ -69,27 +72,29 @@ object Form1: TForm1
     OnChange = RichEdit1Change
   end
   object TreeView1: TTreeView
-    Left = 669
+    Left = 677
     Top = 33
     Width = 121
     Height = 420
     Align = alRight
     Indent = 19
     TabOrder = 2
+    ExplicitLeft = 669
   end
   object WebBrowser1: TCppWebBrowser
     Left = 340
     Top = 33
-    Width = 329
+    Width = 337
     Height = 420
     Align = alClient
     TabOrder = 3
+    OnDownloadComplete = WebBrowser1DownloadComplete
     ExplicitLeft = 346
     ExplicitTop = 128
     ExplicitWidth = 300
     ExplicitHeight = 150
     ControlData = {
-      4C00000001220000692B00000000000000000000000000000000000000000000
+      4C000000D4220000692B00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
       2B2E126208000000000000004C0000000114020000000000C000000000000046
       8000000000000000000000000000000000000000000000000000000000000000
@@ -138,6 +143,14 @@ object Form1: TForm1
       object NClose: TMenuItem
         Caption = #1042#1099#1093#1086#1076
         OnClick = NCloseClick
+      end
+    end
+    object N6: TMenuItem
+      Caption = #1042#1080#1076
+      object DOM1: TMenuItem
+        Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' DOM'
+        Checked = True
+        OnClick = DOM1Click
       end
     end
     object N2: TMenuItem
