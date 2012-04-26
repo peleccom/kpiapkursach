@@ -37,15 +37,6 @@ void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
 void __fastcall TForm1::NOpenDocumentClick(TObject *Sender)
 {
 if (OpenDocumentDialog->Execute())
