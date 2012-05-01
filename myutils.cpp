@@ -8,12 +8,12 @@
 #include "mshtml.h"
 void HTMLDocument::OpenFile(const String &filename)
 {
-	infilename = filename;
+	FileName = filename;
 	wb->Navigate(filename.c_str());
 	while (wb->ReadyState < ::READYSTATE_INTERACTIVE)
 		Application->ProcessMessages();
 	rcedit->Lines->Clear();
-	rcedit->Lines->LoadFromFile(infilename);
+	rcedit->Lines->LoadFromFile(FileName);
 	_changed = false;
 	wb->Silent = true;
 }

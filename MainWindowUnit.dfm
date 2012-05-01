@@ -21,17 +21,17 @@ object Form1: TForm1
   TextHeight = 13
   object Splitter1: TSplitter
     Left = 337
-    Top = 185
-    Height = 268
+    Top = 145
+    Height = 308
     ExplicitLeft = 336
     ExplicitTop = 224
     ExplicitHeight = 100
   end
   object RichEdit1: TRichEdit
     Left = 0
-    Top = 185
+    Top = 145
     Width = 337
-    Height = 268
+    Height = 308
     Align = alLeft
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -42,26 +42,26 @@ object Form1: TForm1
     ScrollBars = ssVertical
     TabOrder = 0
     OnChange = RichEdit1Change
-    ExplicitTop = 67
-    ExplicitHeight = 386
+    ExplicitTop = 185
+    ExplicitHeight = 268
   end
   object TreeView1: TTreeView
     Left = 677
-    Top = 185
+    Top = 145
     Width = 121
-    Height = 268
+    Height = 308
     Align = alRight
     Indent = 19
     TabOrder = 1
     Visible = False
-    ExplicitTop = 137
-    ExplicitHeight = 316
+    ExplicitTop = 185
+    ExplicitHeight = 268
   end
   object WebBrowser1: TCppWebBrowser
     Left = 340
-    Top = 185
+    Top = 145
     Width = 337
-    Height = 268
+    Height = 308
     Align = alClient
     TabOrder = 2
     OnDownloadComplete = WebBrowser1DownloadComplete
@@ -70,7 +70,7 @@ object Form1: TForm1
     ExplicitWidth = 300
     ExplicitHeight = 150
     ControlData = {
-      4C000000D4220000B31B00000000000000000000000000000000000000000000
+      4C000000D4220000D51F00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
       2B2E126208000000000000004C0000000114020000000000C000000000000046
       8000000000000000000000000000000000000000000000000000000000000000
@@ -80,60 +80,19 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 798
-    Height = 185
+    Height = 145
     Align = alTop
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
-    ExplicitTop = -6
-    object ToolBar1: TToolBar
-      Left = 249
-      Top = 6
-      Width = 796
-      Height = 35
-      Align = alCustom
-      Caption = 'ToolBar1'
-      Images = ImageList1
-      TabOrder = 0
-      object ToolButton1: TToolButton
-        Left = 0
-        Top = 0
-        Action = acBold
-      end
-      object ToolButton2: TToolButton
-        Left = 23
-        Top = 0
-        Action = acItalics
-      end
-      object ToolButton3: TToolButton
-        Left = 46
-        Top = 0
-        Action = acUnderline
-      end
-      object ToolButton4: TToolButton
-        Left = 69
-        Top = 0
-        Caption = 'ToolButton4'
-        ImageIndex = 3
-      end
-      object ToolButton5: TToolButton
-        Left = 92
-        Top = 0
-        Action = acInsertList
-      end
-      object ToolButton6: TToolButton
-        Left = 115
-        Top = 0
-        Action = acInsertHyperlink
-      end
-    end
     object pCustomStyle: TPanel
-      Left = 4
-      Top = 40
-      Width = 697
-      Height = 122
-      Align = alCustom
-      TabOrder = 1
+      Left = 1
+      Top = 31
+      Width = 796
+      Height = 113
+      Align = alClient
+      TabOrder = 0
+      ExplicitHeight = 122
       object Label1: TLabel
         Left = 8
         Top = 46
@@ -343,9 +302,9 @@ object Form1: TForm1
       object Label4: TLabel
         Left = 528
         Top = 46
-        Width = 90
+        Width = 96
         Height = 13
-        Caption = #1060#1086#1088#1084#1072#1090' '#1087#1072#1088#1075#1088#1072#1092#1072
+        Caption = #1060#1086#1088#1084#1072#1090' '#1087#1072#1088#1072#1075#1088#1072#1092#1072
       end
       object SpeedButton2: TSpeedButton
         Left = 360
@@ -428,59 +387,113 @@ object Form1: TForm1
         Text = 'cbStyle'
       end
     end
-    object ToolBar2: TToolBar
-      Left = 4
-      Top = 12
-      Width = 101
-      Height = 29
-      Align = alCustom
-      Caption = 'ToolBar2'
-      Images = ImageList1
-      TabOrder = 2
-      object ToolButton14: TToolButton
-        Left = 0
-        Top = 0
-        Action = acNewPage
+    object ControlBar1: TControlBar
+      Left = 1
+      Top = 1
+      Width = 796
+      Height = 30
+      Align = alTop
+      AutoSize = True
+      TabOrder = 1
+      ExplicitLeft = 0
+      ExplicitTop = 7
+      ExplicitWidth = 620
+      object ToolBar2: TToolBar
+        Left = 11
+        Top = 2
+        Width = 101
+        Height = 22
+        Align = alCustom
+        Caption = 'ToolBar2'
+        Images = ImageList1
+        TabOrder = 0
+        object ToolButton14: TToolButton
+          Left = 0
+          Top = 0
+          Action = acNewPage
+        end
+        object ToolButton8: TToolButton
+          Left = 23
+          Top = 0
+          Action = acOpenFile
+        end
+        object ToolButton9: TToolButton
+          Left = 46
+          Top = 0
+          Action = acSaveFile
+        end
+        object ToolButton10: TToolButton
+          Left = 69
+          Top = 0
+          Action = acSaveFileAs
+        end
       end
-      object ToolButton8: TToolButton
-        Left = 23
-        Top = 0
-        Action = acOpenFile
+      object ToolBar3: TToolBar
+        Left = 125
+        Top = 2
+        Width = 96
+        Height = 22
+        Align = alCustom
+        Caption = 'ToolBar3'
+        Images = ImageList1
+        TabOrder = 1
+        object ToolButton11: TToolButton
+          Left = 0
+          Top = 0
+          Action = acCopy
+        end
+        object ToolButton12: TToolButton
+          Left = 23
+          Top = 0
+          Action = acCut
+        end
+        object ToolButton13: TToolButton
+          Left = 46
+          Top = 0
+          Action = acPaste
+        end
       end
-      object ToolButton9: TToolButton
-        Left = 46
-        Top = 0
-        Action = acSaveFile
-      end
-      object ToolButton10: TToolButton
-        Left = 69
-        Top = 0
-        Action = acSaveFileAs
-      end
-    end
-    object ToolBar3: TToolBar
-      Left = 111
-      Top = 9
-      Width = 132
-      Height = 25
-      Align = alCustom
-      Caption = 'ToolBar3'
-      Images = ImageList1
-      TabOrder = 3
-      object ToolButton11: TToolButton
-        Left = 0
-        Top = 0
-        Action = acCopy
-      end
-      object ToolButton12: TToolButton
-        Left = 23
-        Top = 0
-        Action = acCut
-      end
-      object ToolButton13: TToolButton
-        Left = 46
-        Top = 0
-        Action = acPaste
+      object ToolBar1: TToolBar
+        Left = 234
+        Top = 2
+        Width = 143
+        Height = 22
+        Align = alCustom
+        AutoSize = True
+        Caption = 'ToolBar1'
+        Images = ImageList1
+        TabOrder = 2
+        object ToolButton1: TToolButton
+          Left = 0
+          Top = 0
+          Action = acBold
+        end
+        object ToolButton2: TToolButton
+          Left = 23
+          Top = 0
+          Action = acItalics
+        end
+        object ToolButton3: TToolButton
+          Left = 46
+          Top = 0
+          Action = acUnderline
+        end
+        object ToolButton4: TToolButton
+          Left = 69
+          Top = 0
+          Caption = 'ToolButton4'
+          ImageIndex = 3
+        end
+        object ToolButton5: TToolButton
+          Left = 92
+          Top = 0
+          Action = acInsertList
+        end
+        object ToolButton6: TToolButton
+          Left = 115
+          Top = 0
+          Action = acInsertHyperlink
+        end
       end
     end
   end
@@ -492,25 +505,21 @@ object Form1: TForm1
       Caption = '&'#1060#1072#1081#1083
       object N4: TMenuItem
         Action = acNewPage
-        ShortCut = 16462
       end
       object NOpenDocument: TMenuItem
         Action = acOpenFile
-        ShortCut = 16463
       end
       object NCloseDocument: TMenuItem
         Action = acClose
-        ShortCut = 16471
       end
       object N7: TMenuItem
         Caption = '-'
       end
       object NSaveDocument: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
-        ShortCut = 16467
+        Action = acSaveFile
       end
       object N3: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
+        Action = acSaveFileAs
       end
       object N5: TMenuItem
         Caption = '-'
@@ -541,13 +550,18 @@ object Form1: TForm1
     end
   end
   object OpenDocumentDialog: TOpenDialog
-    Filter = #1042#1089#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1084#1099#1077' '#1092#1086#1088#1084#1072#1090#1099'|*.html;*.txt;*.htm'
+    Filter = 
+      #1092#1072#1081#1083#1099' HTML (*.html)|*.html|'#1060#1072#1081#1083#1099' HTM (*.htm)|*.htm|'#1042#1089#1077' '#1092#1072#1081#1083#1099' (*.' +
+      '*)|*.*'
     Left = 88
     Top = 232
   end
   object SaveDocumentDialog: TSaveDialog
-    DefaultExt = 'html'
-    Filter = #1042#1089#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1084#1099#1077' '#1092#1086#1088#1084#1072#1090#1099'|*.html;*.txt;*.htm'
+    DefaultExt = '*.html'
+    Filter = 
+      #1060#1072#1081#1083#1099' HTML (*.html)|*.html|'#1060#1072#1081#1083#1099' HTM (*.htm)|*.htm|'#1042#1089#1077' '#1092#1072#1081#1083#1099' (*.' +
+      '*)|*.*'
+    Title = #1042#1074#1077#1076#1080#1090#1077' '#1080#1084#1103' '#1092#1072#1081#1083#1072' '#1076#1083#1103' '#1089#1086#1093#1088#1072#1085#1077#1085#1080#1103
     Left = 184
     Top = 232
   end
@@ -559,12 +573,14 @@ object Form1: TForm1
       Caption = #1054#1090#1082#1088#1099#1090#1100' '#1092#1072#1081#1083
       Hint = #1054#1090#1082#1088#1099#1090#1100' HTML '#1092#1072#1081#1083
       ImageIndex = 1
+      ShortCut = 16463
       OnExecute = acOpenFileExecute
     end
     object acSaveFile: TAction
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083
-      Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082' HTML'
+      Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083
       ImageIndex = 6
+      ShortCut = 16467
       OnExecute = acSaveFileExecute
     end
     object acExit: TAction
@@ -575,11 +591,14 @@ object Form1: TForm1
       Caption = #1053#1086#1074#1099#1081' '#1076#1086#1082#1091#1084#1077#1085#1090
       Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1076#1086#1082#1091#1084#1077#1085#1090
       ImageIndex = 5
+      ShortCut = 16462
       OnExecute = acNewPageExecute
     end
     object acSaveFileAs: TAction
-      Caption = 'acSaveFileAs'
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083' '#1082#1072#1082'...'
+      Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
       ImageIndex = 9
+      OnExecute = acSaveFileAsExecute
     end
     object acShowDom: TAction
       Caption = 'acShowDom'
@@ -587,6 +606,7 @@ object Form1: TForm1
     object acUnderline: TAction
       Caption = 'acUnderline'
       ImageIndex = 7
+      OnExecute = acUnderlineExecute
     end
     object acBold: TAction
       Caption = #1055#1086#1083#1091#1078#1080#1088#1085#1099#1081
@@ -597,6 +617,7 @@ object Form1: TForm1
     object acItalics: TAction
       Caption = 'acItalics'
       ImageIndex = 4
+      OnExecute = acItalicsExecute
     end
     object acInsertImage: TAction
       Caption = 'acInsertImage'
@@ -605,10 +626,12 @@ object Form1: TForm1
     object acInsertHyperlink: TAction
       Caption = 'acInsertHyperlink'
       ImageIndex = 2
+      OnExecute = acInsertHyperlinkExecute
     end
     object acInsertList: TAction
       Caption = 'acInsertList'
       ImageIndex = 8
+      OnExecute = acInsertListExecute
     end
     object acSwitchEditMode: TAction
       Caption = 'acSwitchEditMode'
@@ -616,14 +639,20 @@ object Form1: TForm1
     object acCopy: TAction
       Caption = 'acCopy'
       ImageIndex = 10
+      ShortCut = 16451
+      OnExecute = acCopyExecute
     end
     object acPaste: TAction
       Caption = 'acPaste'
       ImageIndex = 12
+      ShortCut = 16470
+      OnExecute = acPasteExecute
     end
     object acCut: TAction
       Caption = 'acCut'
       ImageIndex = 11
+      ShortCut = 16472
+      OnExecute = acCutExecute
     end
     object acSaveUserStyle: TAction
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1089#1090#1080#1083#1100
@@ -645,6 +674,7 @@ object Form1: TForm1
     end
     object acClose: TAction
       Caption = #1047#1072#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
+      ShortCut = 16471
       OnExecute = acCloseExecute
     end
   end
@@ -652,7 +682,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010110001800800010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

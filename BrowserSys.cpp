@@ -26,9 +26,8 @@ bool BrowserSys::InitInterfaces()
 
 void BrowserSys::EditMode(bool on)
 {
-	if (on) {
+	if (on)
 		Editor->put_designMode(L"On");
-	}
 	else
 		Editor->put_designMode(L"Off");
 }
@@ -55,3 +54,34 @@ IHTMLTxtRange* BrowserSys::TxtRange()
 	return NULL;
 }
 
+void BrowserSys::Bold(){
+	TxtRange()->execCommand(L"bold",false,var, &rec);
+}
+
+void BrowserSys::Italic(){
+	TxtRange()->execCommand(L"italic",false,var, &rec);
+}
+
+void BrowserSys::UnderLine(){
+	TxtRange()->execCommand(L"underline",false,var, &rec);
+}
+
+void BrowserSys::Paste(){
+	wb->ExecWB(OLECMDID_PASTE, OLECMDEXECOPT_DONTPROMPTUSER);
+}
+
+void BrowserSys::Copy(){
+	wb->ExecWB(OLECMDID_COPY, OLECMDEXECOPT_DONTPROMPTUSER);
+}
+
+void BrowserSys::Cut(){
+	wb->ExecWB(OLECMDID_CUT, OLECMDEXECOPT_DONTPROMPTUSER);
+}
+
+void BrowserSys::InsertList(){
+  TxtRange()->execCommand(L"InsertUnorderedList", false, var, &rec);
+}
+
+void BrowserSys::HyperLink(){
+	TxtRange()->execCommand(L"CreateLink", true, var, &rec);
+}

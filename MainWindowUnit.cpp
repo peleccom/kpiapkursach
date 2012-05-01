@@ -87,11 +87,6 @@ void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::SpeedButton1Click(TObject *Sender)
-{
-ShowMessage(L"Выполнили действие с выделенным текстом..");
-}
-//---------------------------------------------------------------------------
 
 void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
 {
@@ -176,10 +171,17 @@ void __fastcall TForm1::acCloseExecute(TObject *Sender)
 
 void __fastcall TForm1::acSaveFileExecute(TObject *Sender)
 {
-if (SaveDocumentDialog->Execute())
+	if (doc->FileName == "")
 	{
-		doc->SaveFile(SaveDocumentDialog->FileName);
+		SaveDocumentDialog->FileName = L"Безымянный";
+		if (SaveDocumentDialog->Execute())
+		{
+			doc->FileName = SaveDocumentDialog->FileName;
+		}
+		else
+			return;
 	}
+	doc->SaveFile(doc->FileName);
 }
 //---------------------------------------------------------------------------
 
@@ -195,11 +197,77 @@ void __fastcall TForm1::acNewPageExecute(TObject *Sender)
 
 
 
+
+
+
 void __fastcall TForm1::acBoldExecute(TObject *Sender)
 {
-VARIANT var;
-VARIANT_BOOL rec;
- browser->TxtRange()->execCommand(L"bold",false,var, &rec);
+	browser->Bold();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acItalicsExecute(TObject *Sender)
+{
+	browser->Italic();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::acUnderlineExecute(TObject *Sender)
+{
+	browser->UnderLine();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acCopyExecute(TObject *Sender)
+{
+	browser->Copy();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::acPasteExecute(TObject *Sender)
+{
+	browser->Paste();
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::acInsertListExecute(TObject *Sender)
+{
+	browser->InsertList();
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::acInsertHyperlinkExecute(TObject *Sender)
+{
+	browser->HyperLink();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::acSaveFileAsExecute(TObject *Sender)
+{
+	SaveDocumentDialog->FileName = ExtractFileName(doc->FileName);
+	SaveDocumentDialog->InitialDir = ExtractFileDir(doc->FileName);
+	if (SaveDocumentDialog->Execute())
+	{
+		doc->FileName = SaveDocumentDialog->FileName;
+	}
+	else
+		return;
+	doc->SaveFile(doc->FileName);
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::acCutExecute(TObject *Sender)
+{
+	browser->Cut();
 }
 //---------------------------------------------------------------------------
 
