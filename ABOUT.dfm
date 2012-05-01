@@ -57,33 +57,32 @@ object AboutBox: TAboutBox
     object ProductName: TLabel
       Left = 88
       Top = 16
-      Width = 68
+      Width = 80
       Height = 13
-      Caption = 'Product Name'
+      Caption = 'HTML '#1088#1077#1076#1072#1082#1090#1086#1088
       IsControl = True
     end
     object Version: TLabel
       Left = 88
       Top = 40
-      Width = 35
+      Width = 46
       Height = 13
-      Caption = 'Version'
+      Caption = #1042#1077#1088#1089#1080#1103' 1'
       IsControl = True
     end
     object Copyright: TLabel
       Left = 8
-      Top = 80
-      Width = 44
+      Top = 85
+      Width = 157
       Height = 13
-      Caption = 'Copyright'
+      Caption = 'Copyright Pitkin A. B. Minsk 2012'
       IsControl = True
     end
     object Comments: TLabel
       Left = 8
       Top = 104
-      Width = 49
+      Width = 3
       Height = 13
-      Caption = 'Comments'
       WordWrap = True
       IsControl = True
     end

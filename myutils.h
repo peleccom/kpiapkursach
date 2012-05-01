@@ -19,5 +19,6 @@ class HTMLDocument
 	void SaveFile(const String &filename);
 	bool changed(); // content changed ?
 	void Update(const String &html); // every time then update content
+	String GetHTML();
 };
 #endif

@@ -47,7 +47,7 @@
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib;frx16.lib;fs16.lib;vclx.lib;vclimg.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
 			<IncludePath>D:\Ucheba\KPiAP\kursach\gui_builder\;$(IncludePath)</IncludePath>
@@ -105,6 +105,10 @@
 				<Form>AboutBox</Form>
 				<DependentOn>ABOUT.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BrowserSys.cpp">
+				<DependentOn>BrowserSys.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="kurs.cpp">
 				<BuildOrder>0</BuildOrder>

@@ -23,13 +23,25 @@ void LoadHtmlFromString(TCppWebBrowser *pCppWebBrowser,
  {
 IHTMLDocument2* pHTMLDocument;
    IHTMLElement* pElement;
-   if (FAILED(pCppWebBrowser->Document->QueryInterface(IID_IHTMLDocument2, (LPVOID*) &pHTMLDocument))) return;
+   if (FAILED(pCppWebBrowser->Document->QueryInterface(IID_IHTMLDocument2, (void **) &pHTMLDocument))) return;
    if (FAILED(pHTMLDocument->get_body(&pElement))) return;
    pElement->put_innerHTML(str.c_str());
    pElement->Release();
    pHTMLDocument->Release();
  }
 
+String WebBrowserToString(TCppWebBrowser *pCppWebBrowser)
+{
+	IHTMLDocument2* pHTMLDocument;
+   IHTMLElement* pElement;
+   BSTR s;
+   if (FAILED(pCppWebBrowser->Document->QueryInterface(IID_IHTMLDocument2, (void **) &pHTMLDocument))) return NULL;
+   if (FAILED(pHTMLDocument->get_body(&pElement))) return NULL;
+   pElement->get_innerHTML(&s);
+   pElement->Release();
+   pHTMLDocument->Release();
+   return String(s);
+}
 
 void HTMLDocument::Update(const String &html){
 	this->html = html;
@@ -59,5 +71,9 @@ HTMLDocument::HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser):
 		Application->ProcessMessages();
 	wb->Offline = true;
 };
+
+String HTMLDocument::GetHTML(){
+  return WebBrowserToString(wb);
+}
 
 

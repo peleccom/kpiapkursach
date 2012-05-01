@@ -2,14 +2,22 @@
 
 #include <vcl.h>
 #pragma hdrstop
-#include <mshtml.h>
+
 #include "MainWindowUnit.h"
 #include "About.h"
+#include "BrowserSys.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "SHDocVw_OCX"
+#pragma link "frxCtrls"
 #pragma resource "*.dfm"
 TForm1 *Form1;
+
+
+void OnKeyPress(DISPID id, VARIANT* pVarResult)
+{
+}
+
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
@@ -37,15 +45,6 @@ void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::NOpenDocumentClick(TObject *Sender)
-{
-if (OpenDocumentDialog->Execute())
-	{
-		doc->OpenFile(OpenDocumentDialog->FileName);
-		this->Caption = FormTitle + ExtractFileName(OpenDocumentDialog->FileName);
-	}
-}
-//---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
@@ -122,16 +121,19 @@ ShowMessage(L"Выполнили действие с выделенным тек
 
 void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
 {
-	IHTMLDocument2* doc;    //This interface is defined in mshtml.h
-
 	HRESULT hr;
-	hr = WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&doc);
+	hr = WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&Editor);
 	if(SUCCEEDED(hr))
 	{
-		doc->put_designMode(L"On");
-		doc->Release();            //Release the object
+		Editor->put_designMode(L"On");
+		Editor->Release();            //Release the object
 
 	}
+	else
+		Editor = NULL;
+
+
+
 }
 //---------------------------------------------------------------------------
 
@@ -140,6 +142,83 @@ void __fastcall TForm1::DOM1Click(TObject *Sender)
 {
 DOM1->Checked = ! DOM1->Checked;
 TreeView1->Visible = DOM1->Checked;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::ToolButton1Click(TObject *Sender)
+{
+ IHTMLDocument2*   doc;
+	HRESULT   hr   =   WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&doc);
+
+	if(hr   ==   S_OK)
+	{
+		  VARIANT   var;
+		  VARIANT_BOOL         receive;
+		  doc->execCommand(L"InsertImage",true,var, &receive);
+		  doc->Release();
+	}
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::ToolButton2Click(TObject *Sender)
+{
+//RichEdit1->Text  = doc->GetHTML();
+Editor->put_designMode(L"Off");
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+void __fastcall TForm1::acOpenFileExecute(TObject *Sender)
+{
+if (OpenDocumentDialog->Execute())
+	{
+		doc->OpenFile(OpenDocumentDialog->FileName);
+		this->Caption = FormTitle + ExtractFileName(OpenDocumentDialog->FileName);
+	}
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+void __fastcall TForm1::acEditStyleExecute(TObject *Sender)
+{
+//
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acDeleteStyleExecute(TObject *Sender)
+{
+//
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acSaveUserStyleExecute(TObject *Sender)
+{
+//
 }
 //---------------------------------------------------------------------------
 
