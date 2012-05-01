@@ -130,6 +130,7 @@ __published:	// IDE-managed Components
 	void __fastcall acInsertHyperlinkExecute(TObject *Sender);
 	void __fastcall acSaveFileAsExecute(TObject *Sender);
 	void __fastcall acCutExecute(TObject *Sender);
+	void __fastcall acInsertImageExecute(TObject *Sender);
 
 
 

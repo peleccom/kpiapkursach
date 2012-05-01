@@ -85,3 +85,7 @@ void BrowserSys::InsertList(){
 void BrowserSys::HyperLink(){
 	TxtRange()->execCommand(L"CreateLink", true, var, &rec);
 }
+
+void BrowserSys::InsertImage(){
+	TxtRange()->execCommand(L"InsertImage", true,  var, &rec);
+}

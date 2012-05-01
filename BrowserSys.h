@@ -21,6 +21,7 @@ class BrowserSys{
 		void UnderLine();
 		void InsertList();
 		void HyperLink();
+		void InsertImage();
 		IHTMLTxtRange* TxtRange();
 	private:
 		TCppWebBrowser *wb;

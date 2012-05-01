@@ -271,3 +271,10 @@ void __fastcall TForm1::acCutExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TForm1::acInsertImageExecute(TObject *Sender)
+{
+	browser->InsertImage();
+}
+//---------------------------------------------------------------------------
+

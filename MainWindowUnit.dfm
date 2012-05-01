@@ -42,8 +42,6 @@ object Form1: TForm1
     ScrollBars = ssVertical
     TabOrder = 0
     OnChange = RichEdit1Change
-    ExplicitTop = 185
-    ExplicitHeight = 268
   end
   object TreeView1: TTreeView
     Left = 677
@@ -54,8 +52,6 @@ object Form1: TForm1
     Indent = 19
     TabOrder = 1
     Visible = False
-    ExplicitTop = 185
-    ExplicitHeight = 268
   end
   object WebBrowser1: TCppWebBrowser
     Left = 340
@@ -92,7 +88,6 @@ object Form1: TForm1
       Height = 113
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 122
       object Label1: TLabel
         Left = 8
         Top = 46
@@ -395,9 +390,6 @@ object Form1: TForm1
       Align = alTop
       AutoSize = True
       TabOrder = 1
-      ExplicitLeft = 0
-      ExplicitTop = 7
-      ExplicitWidth = 620
       object ToolBar2: TToolBar
         Left = 11
         Top = 2
@@ -481,8 +473,7 @@ object Form1: TForm1
         object ToolButton4: TToolButton
           Left = 69
           Top = 0
-          Caption = 'ToolButton4'
-          ImageIndex = 3
+          Action = acInsertImage
         end
         object ToolButton5: TToolButton
           Left = 92
@@ -622,6 +613,7 @@ object Form1: TForm1
     object acInsertImage: TAction
       Caption = 'acInsertImage'
       ImageIndex = 3
+      OnExecute = acInsertImageExecute
     end
     object acInsertHyperlink: TAction
       Caption = 'acInsertHyperlink'
@@ -682,7 +674,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010110001800880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101100018008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
