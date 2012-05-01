@@ -14,16 +14,18 @@
 #include <Vcl.OleCtrls.hpp>
 #include "SHDocVw_OCX.h"
 #include <Vcl.Dialogs.hpp>
-#include "myutils.h"
 #include <Vcl.Buttons.hpp>
 #include <Vcl.ToolWin.hpp>
-#include <mshtml.h>
 #include <Vcl.ActnList.hpp>
 #include <Vcl.ImgList.hpp>
 #include "frxCtrls.hpp"
 #include <Vcl.Graphics.hpp>
 //---------------------------------------------------------------------------
+#include <mshtml.h>
+#include "myutils.h"
+#include "BrowserSys.h"
 class HTMLDocument;
+class BrowserSys;
 //-------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -35,8 +37,6 @@ __published:	// IDE-managed Components
 	TMenuItem *NOpenDocument;
 	TMenuItem *AboutAction;
 	TMenuItem *NSaveDocument;
-	TMenuItem *N9;
-	TMenuItem *N10;
 	TRichEdit *RichEdit1;
 	TSplitter *Splitter1;
 	TTreeView *TreeView1;
@@ -76,7 +76,6 @@ __published:	// IDE-managed Components
 	TMenuItem *N8;
 	TMenuItem *N11;
 	TAction *acSwitchEditMode;
-	TToolButton *ToolButton7;
 	TToolBar *ToolBar2;
 	TToolButton *ToolButton8;
 	TToolButton *ToolButton9;
@@ -105,25 +104,24 @@ __published:	// IDE-managed Components
 	TSpeedButton *SpeedButton2;
 	TAction *acEditStyle;
 	TSpeedButton *SpeedButton3;
+	TAction *acClose;
 	void __fastcall AboutActionClick(TObject *Sender);
-	void __fastcall NCloseClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
-	void __fastcall NSaveDocumentClick(TObject *Sender);
-	void __fastcall NCloseDocumentClick(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
-	void __fastcall N4Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall SpeedButton1Click(TObject *Sender);
 	void __fastcall WebBrowser1DownloadComplete(TObject *Sender);
 	void __fastcall DOM1Click(TObject *Sender);
-	void __fastcall ToolButton1Click(TObject *Sender);
-	void __fastcall ToolButton2Click(TObject *Sender);
 	void __fastcall acOpenFileExecute(TObject *Sender);
 	void __fastcall acEditStyleExecute(TObject *Sender);
 	void __fastcall acDeleteStyleExecute(TObject *Sender);
 	void __fastcall acSaveUserStyleExecute(TObject *Sender);
+	void __fastcall acCloseExecute(TObject *Sender);
+	void __fastcall acSaveFileExecute(TObject *Sender);
+	void __fastcall acNewPageExecute(TObject *Sender);
+	void __fastcall acBoldExecute(TObject *Sender);
 
 
 
@@ -134,7 +132,8 @@ __published:	// IDE-managed Components
 
 private:	// User declarations
 HTMLDocument *doc;
-IHTMLDocument2 *Editor;
+BrowserSys *browser;
+IHTMLDocument2 *Editor; // интерфейc браузера
 String FormTitle;
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

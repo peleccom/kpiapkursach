@@ -53,6 +53,7 @@ object Form1: TForm1
     Align = alRight
     Indent = 19
     TabOrder = 1
+    Visible = False
     ExplicitTop = 137
     ExplicitHeight = 316
   end
@@ -124,12 +125,6 @@ object Form1: TForm1
         Left = 115
         Top = 0
         Action = acInsertHyperlink
-      end
-      object ToolButton7: TToolButton
-        Left = 138
-        Top = 0
-        Caption = 'ToolButton7'
-        ImageIndex = 3
       end
     end
     object pCustomStyle: TPanel
@@ -496,20 +491,16 @@ object Form1: TForm1
     object N1: TMenuItem
       Caption = '&'#1060#1072#1081#1083
       object N4: TMenuItem
-        Caption = #1057#1086#1079#1076#1072#1090#1100
+        Action = acNewPage
         ShortCut = 16462
-        OnClick = N4Click
       end
       object NOpenDocument: TMenuItem
         Action = acOpenFile
-      end
-      object N9: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1096#1072#1073#1083#1086#1085
+        ShortCut = 16463
       end
       object NCloseDocument: TMenuItem
-        Caption = #1047#1072#1082#1088#1099#1090#1100
+        Action = acClose
         ShortCut = 16471
-        OnClick = NCloseDocumentClick
       end
       object N7: TMenuItem
         Caption = '-'
@@ -517,27 +508,21 @@ object Form1: TForm1
       object NSaveDocument: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
         ShortCut = 16467
-        OnClick = NSaveDocumentClick
       end
       object N3: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082'...'
-      end
-      object N10: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1096#1072#1073#1083#1086#1085
       end
       object N5: TMenuItem
         Caption = '-'
       end
       object NClose: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
-        OnClick = NCloseClick
+        Action = acExit
       end
     end
     object N6: TMenuItem
       Caption = #1042#1080#1076
       object DOM1: TMenuItem
         Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' DOM'
-        Checked = True
         OnClick = DOM1Click
       end
     end
@@ -580,6 +565,7 @@ object Form1: TForm1
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1082#1072#1082' HTML'
       ImageIndex = 6
+      OnExecute = acSaveFileExecute
     end
     object acExit: TAction
       Caption = #1042#1099#1093#1086#1076
@@ -589,6 +575,7 @@ object Form1: TForm1
       Caption = #1053#1086#1074#1099#1081' '#1076#1086#1082#1091#1084#1077#1085#1090
       Hint = #1057#1086#1079#1076#1072#1090#1100' '#1085#1086#1074#1099#1081' '#1076#1086#1082#1091#1084#1077#1085#1090
       ImageIndex = 5
+      OnExecute = acNewPageExecute
     end
     object acSaveFileAs: TAction
       Caption = 'acSaveFileAs'
@@ -605,6 +592,7 @@ object Form1: TForm1
       Caption = #1055#1086#1083#1091#1078#1080#1088#1085#1099#1081
       Hint = #1042#1099#1076#1077#1083#1080#1090#1100' '#1087#1086#1083#1091#1078#1080#1088#1085#1099#1084
       ImageIndex = 0
+      OnExecute = acBoldExecute
     end
     object acItalics: TAction
       Caption = 'acItalics'
@@ -654,6 +642,10 @@ object Form1: TForm1
       Hint = #1047#1072#1084#1077#1085#1080#1090#1100' '#1089#1090#1080#1083#1100
       ImageIndex = 15
       OnExecute = acEditStyleExecute
+    end
+    object acClose: TAction
+      Caption = #1047#1072#1082#1088#1099#1090#1100' '#1076#1086#1082#1091#1084#1077#1085#1090
+      OnExecute = acCloseExecute
     end
   end
   object ImageList1: TImageList

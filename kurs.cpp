@@ -30,6 +30,7 @@ WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
+		Application->Title = "HTML редактор";
 		Application->CreateForm(__classid(TForm1), &Form1);
 		Application->CreateForm(__classid(TAboutBox), &AboutBox);
 		Application->Run();

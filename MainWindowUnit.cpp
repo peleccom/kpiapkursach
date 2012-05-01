@@ -5,7 +5,6 @@
 
 #include "MainWindowUnit.h"
 #include "About.h"
-#include "BrowserSys.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "SHDocVw_OCX"
@@ -29,12 +28,6 @@ void __fastcall TForm1::AboutActionClick(TObject *Sender)
 AboutBox->ShowModal();
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::NCloseClick(TObject *Sender)
-{
-//
-ShowMessage("Закрывает все активные окна");
-}
-//---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::RichEdit1Change(TObject *Sender)
@@ -48,6 +41,7 @@ void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
+browser = new BrowserSys(WebBrowser1);
 doc= new HTMLDocument(RichEdit1, WebBrowser1);
 FormTitle = "Редактор HTML - " ;
 }
@@ -56,27 +50,15 @@ FormTitle = "Редактор HTML - " ;
 void __fastcall TForm1::FormDestroy(TObject *Sender)
 {
 delete doc;
+delete browser;
 }
 //---------------------------------------------------------------------------
 
 
 
-void __fastcall TForm1::NSaveDocumentClick(TObject *Sender)
-{
-if (SaveDocumentDialog->Execute())
-	{
-		doc->SaveFile(SaveDocumentDialog->FileName);
-	}
-}
-//---------------------------------------------------------------------------
 
 
 
-void __fastcall TForm1::NCloseDocumentClick(TObject *Sender)
-{
-	Close();
-}
-//---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
@@ -89,7 +71,7 @@ void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 		{
 			CanClose = false;
 			if (qresult == mrYes) {
-				NSaveDocumentClick(Sender);
+				acSaveFile->Execute();
 			}
 		}
 	}
@@ -98,14 +80,6 @@ void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::N4Click(TObject *Sender)
-{
- //TO DO check if document opened
-	TForm1 *form = new TForm1(Application);
-	form->Caption = FormTitle+L"Безымянный";
-	form->Show();
-}
-//---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
@@ -121,18 +95,10 @@ ShowMessage(L"Выполнили действие с выделенным тек
 
 void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
 {
+	//browser.InitInterfaces();
 	HRESULT hr;
-	hr = WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&Editor);
-	if(SUCCEEDED(hr))
-	{
-		Editor->put_designMode(L"On");
-		Editor->Release();            //Release the object
-
-	}
-	else
-		Editor = NULL;
-
-
+	if (browser->InitInterfaces())
+		browser->EditMode(true);
 
 }
 //---------------------------------------------------------------------------
@@ -146,20 +112,6 @@ TreeView1->Visible = DOM1->Checked;
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::ToolButton1Click(TObject *Sender)
-{
- IHTMLDocument2*   doc;
-	HRESULT   hr   =   WebBrowser1->Document->QueryInterface(IID_IHTMLDocument2,(void**)&doc);
-
-	if(hr   ==   S_OK)
-	{
-		  VARIANT   var;
-		  VARIANT_BOOL         receive;
-		  doc->execCommand(L"InsertImage",true,var, &receive);
-		  doc->Release();
-	}
-}
-//---------------------------------------------------------------------------
 
 
 
@@ -172,12 +124,6 @@ void __fastcall TForm1::ToolButton1Click(TObject *Sender)
 
 
 
-void __fastcall TForm1::ToolButton2Click(TObject *Sender)
-{
-//RichEdit1->Text  = doc->GetHTML();
-Editor->put_designMode(L"Off");
-}
-//---------------------------------------------------------------------------
 
 
 
@@ -219,6 +165,41 @@ void __fastcall TForm1::acDeleteStyleExecute(TObject *Sender)
 void __fastcall TForm1::acSaveUserStyleExecute(TObject *Sender)
 {
 //
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acCloseExecute(TObject *Sender)
+{
+	Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acSaveFileExecute(TObject *Sender)
+{
+if (SaveDocumentDialog->Execute())
+	{
+		doc->SaveFile(SaveDocumentDialog->FileName);
+	}
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::acNewPageExecute(TObject *Sender)
+{
+ //TO DO check if document opened
+	TForm1 *form = new TForm1(Application);
+	form->Caption = FormTitle+L"Безымянный";
+	form->Show();
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::acBoldExecute(TObject *Sender)
+{
+VARIANT var;
+VARIANT_BOOL rec;
+ browser->TxtRange()->execCommand(L"bold",false,var, &rec);
 }
 //---------------------------------------------------------------------------
 
