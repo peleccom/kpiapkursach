@@ -77,3 +77,11 @@ String HTMLDocument::GetHTML(){
 }
 
 
+bool Assigned(void *p){
+if (p == NULL)
+	return false;
+else
+	return true;
+}
+
+

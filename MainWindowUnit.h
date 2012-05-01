@@ -24,11 +24,13 @@
 #include <mshtml.h>
 #include "myutils.h"
 #include "BrowserSys.h"
+#include <vector>
 class HTMLDocument;
 class BrowserSys;
 //-------------------------------------------------------------------------
 class TForm1 : public TForm
 {
+
 __published:	// IDE-managed Components
 	TMainMenu *MainMenu1;
 	TMenuItem *N1;
@@ -106,6 +108,12 @@ __published:	// IDE-managed Components
 	TToolButton *ToolButton4;
 	TToolButton *ToolButton5;
 	TToolButton *ToolButton6;
+	TMenuItem *Gh1;
+	TMenuItem *N9;
+	TMenuItem *N10;
+	TMenuItem *N12;
+	TTimer *tmUpdater;
+	TButton *Button1;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -131,6 +139,8 @@ __published:	// IDE-managed Components
 	void __fastcall acSaveFileAsExecute(TObject *Sender);
 	void __fastcall acCutExecute(TObject *Sender);
 	void __fastcall acInsertImageExecute(TObject *Sender);
+	void __fastcall tmUpdaterTimer(TObject *Sender);
+	void __fastcall acExitExecute(TObject *Sender);
 
 
 
@@ -140,11 +150,12 @@ __published:	// IDE-managed Components
 
 
 private:	// User declarations
-HTMLDocument *doc;
-BrowserSys *browser;
-IHTMLDocument2 *Editor; // интерфейc браузера
-String FormTitle;
+	HTMLDocument *doc;
+	BrowserSys *browser;
+	IHTMLDocument2 *Editor; // интерфейc браузера
+	String FormTitle;
 public:		// User declarations
+	static std::vector<TForm1 *> forms;
 	__fastcall TForm1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

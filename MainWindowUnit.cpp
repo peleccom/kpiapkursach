@@ -11,7 +11,7 @@
 #pragma link "frxCtrls"
 #pragma resource "*.dfm"
 TForm1 *Form1;
-
+std::vector<TForm1 *> TForm1::forms;
 
 void OnKeyPress(DISPID id, VARIANT* pVarResult)
 {
@@ -44,6 +44,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 browser = new BrowserSys(WebBrowser1);
 doc= new HTMLDocument(RichEdit1, WebBrowser1);
 FormTitle = "Редактор HTML - " ;
+forms.push_back(this);
 }
 //---------------------------------------------------------------------------
 
@@ -62,6 +63,7 @@ delete browser;
 
 void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
+	ShowMessage("Запрос на закрытие формы");
 	if (doc->changed()) {
 		int qresult;
 		qresult = MessageDlg("Сохранить текущий документ перед закрытием", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo << mbCancel,0);
@@ -94,6 +96,8 @@ void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
 	HRESULT hr;
 	if (browser->InitInterfaces())
 		browser->EditMode(true);
+	tmUpdater->Enabled = true;
+	tmUpdater->OnTimer(Sender);
 
 }
 //---------------------------------------------------------------------------
@@ -277,4 +281,26 @@ void __fastcall TForm1::acInsertImageExecute(TObject *Sender)
 	browser->InsertImage();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::tmUpdaterTimer(TObject *Sender)
+{
+	bool is_txt =  Assigned(browser->TxtRange());
+	acBold->Enabled = is_txt;
+	acItalics->Enabled = is_txt;
+	acUnderline->Enabled = is_txt;
+	acInsertHyperlink->Enabled = is_txt;
+	acInsertImage->Enabled = is_txt;
+	acInsertList->Enabled = is_txt;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::acExitExecute(TObject *Sender)
+{
+std::vector<TForm1 *>::reverse_iterator i;
+for (i = forms.rbegin(); i != forms.rend(); i++)
+	(*i)->Close();
+}
+//---------------------------------------------------------------------------
+
 

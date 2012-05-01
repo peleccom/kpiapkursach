@@ -487,6 +487,14 @@ object Form1: TForm1
         end
       end
     end
+    object Button1: TButton
+      Left = 361
+      Top = 82
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 2
+    end
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
@@ -517,6 +525,18 @@ object Form1: TForm1
       end
       object NClose: TMenuItem
         Action = acExit
+      end
+    end
+    object Gh1: TMenuItem
+      Caption = #1055#1088#1072#1074#1082#1072
+      object N9: TMenuItem
+        Action = acCut
+      end
+      object N10: TMenuItem
+        Action = acCopy
+      end
+      object N12: TMenuItem
+        Action = acPaste
       end
     end
     object N6: TMenuItem
@@ -577,6 +597,7 @@ object Form1: TForm1
     object acExit: TAction
       Caption = #1042#1099#1093#1086#1076
       Hint = #1047#1072#1082#1088#1099#1090#1100' '#1074#1089#1077' '#1086#1082#1085#1072' '#1080' '#1074#1099#1081#1090#1080
+      OnExecute = acExitExecute
     end
     object acNewPage: TAction
       Caption = #1053#1086#1074#1099#1081' '#1076#1086#1082#1091#1084#1077#1085#1090
@@ -629,19 +650,22 @@ object Form1: TForm1
       Caption = 'acSwitchEditMode'
     end
     object acCopy: TAction
-      Caption = 'acCopy'
+      Caption = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
+      Hint = #1050#1086#1087#1080#1088#1086#1074#1072#1090#1100
       ImageIndex = 10
       ShortCut = 16451
       OnExecute = acCopyExecute
     end
     object acPaste: TAction
-      Caption = 'acPaste'
+      Caption = #1042#1089#1090#1072#1074#1080#1090#1100
+      Hint = #1042#1089#1090#1072#1074#1080#1090#1100
       ImageIndex = 12
       ShortCut = 16470
       OnExecute = acPasteExecute
     end
     object acCut: TAction
-      Caption = 'acCut'
+      Caption = #1042#1099#1088#1077#1079#1072#1090#1100
+      Hint = #1042#1099#1088#1077#1079#1072#1090#1100
       ImageIndex = 11
       ShortCut = 16472
       OnExecute = acCutExecute
@@ -674,7 +698,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C0101100018008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010110001800900010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1340,5 +1364,11 @@ object Form1: TForm1
       F8C78003000F8000F8C7C3C7000F8000F00FFF87000F8000FFFFFF8F801F8000
       FFFFFE1FC03F8000FFFFF87FE07FFFFF00000000000000000000000000000000
       000000000000}
+  end
+  object tmUpdater: TTimer
+    Enabled = False
+    OnTimer = tmUpdaterTimer
+    Left = 208
+    Top = 280
   end
 end

@@ -21,4 +21,7 @@ class HTMLDocument
 	TRichEdit *rcedit;
 	TCppWebBrowser *wb;
 };
+
+
+bool Assigned(void *ptr);
 #endif
