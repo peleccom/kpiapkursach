@@ -37,8 +37,11 @@ bool BrowserSys::CanCopy(){
 }
 
 bool BrowserSys::CanPaste(){
-
 	return wb->QueryStatusWB(Shdocvw::OLECMDID_PASTE) != 1;
+}
+
+bool BrowserSys::CanCut(){
+	return wb->QueryStatusWB(Shdocvw::OLECMDID_CUT) != 1;
 }
 
 IHTMLTxtRange* BrowserSys::TxtRange()
@@ -88,4 +91,20 @@ void BrowserSys::HyperLink(){
 
 void BrowserSys::InsertImage(){
 	TxtRange()->execCommand(L"InsertImage", true,  var, &rec);
+}
+
+void BrowserSys::Undo(){
+	wb->ExecWB(OLECMDID_UNDO, OLECMDEXECOPT_DONTPROMPTUSER);
+}
+
+void BrowserSys::Redo(){
+	wb->ExecWB(OLECMDID_REDO, OLECMDEXECOPT_DONTPROMPTUSER);
+}
+
+bool BrowserSys::CanUndo(){
+	return  wb->QueryStatusWB(Shdocvw::OLECMDID_UNDO) > 1;
+}
+
+bool BrowserSys::CanRedo(){
+	return  wb->QueryStatusWB(Shdocvw::OLECMDID_REDO) > 1;
 }

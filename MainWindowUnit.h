@@ -114,6 +114,11 @@ __published:	// IDE-managed Components
 	TMenuItem *N12;
 	TTimer *tmUpdater;
 	TButton *Button1;
+	TToolButton *ToolButton7;
+	TToolButton *ToolButton15;
+	TToolButton *ToolButton16;
+	TAction *acUndo;
+	TAction *acRedo;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -141,6 +146,8 @@ __published:	// IDE-managed Components
 	void __fastcall acInsertImageExecute(TObject *Sender);
 	void __fastcall tmUpdaterTimer(TObject *Sender);
 	void __fastcall acExitExecute(TObject *Sender);
+	void __fastcall acUndoExecute(TObject *Sender);
+	void __fastcall acRedoExecute(TObject *Sender);
 
 
 

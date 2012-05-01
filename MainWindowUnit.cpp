@@ -63,7 +63,6 @@ delete browser;
 
 void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
-	ShowMessage("Запрос на закрытие формы");
 	if (doc->changed()) {
 		int qresult;
 		qresult = MessageDlg("Сохранить текущий документ перед закрытием", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo << mbCancel,0);
@@ -291,6 +290,11 @@ void __fastcall TForm1::tmUpdaterTimer(TObject *Sender)
 	acInsertHyperlink->Enabled = is_txt;
 	acInsertImage->Enabled = is_txt;
 	acInsertList->Enabled = is_txt;
+	acUndo->Enabled  = browser->CanUndo();
+	acRedo->Enabled = browser->CanRedo();
+	acCut->Enabled = browser->CanCut();
+	acCopy->Enabled = browser->CanCopy();
+	acPaste->Enabled = browser->CanPaste();
 }
 //---------------------------------------------------------------------------
 
@@ -303,4 +307,19 @@ for (i = forms.rbegin(); i != forms.rend(); i++)
 }
 //---------------------------------------------------------------------------
 
+
+
+
+
+void __fastcall TForm1::acUndoExecute(TObject *Sender)
+{
+	browser->Undo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::acRedoExecute(TObject *Sender)
+{
+	browser->Redo();
+}
+//---------------------------------------------------------------------------
 

@@ -13,6 +13,9 @@ class BrowserSys{
 		void EditMode(bool on= true);
 		bool CanPaste();
 		bool CanCopy();
+		bool CanCut();
+		bool CanRedo();
+		bool CanUndo();
 		void Bold();
 		void Italic();
 		void Paste();
@@ -22,6 +25,8 @@ class BrowserSys{
 		void InsertList();
 		void HyperLink();
 		void InsertImage();
+		void Undo();
+		void Redo();
 		IHTMLTxtRange* TxtRange();
 	private:
 		TCppWebBrowser *wb;
