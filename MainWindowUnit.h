@@ -24,7 +24,9 @@
 #include <mshtml.h>
 #include "myutils.h"
 #include "BrowserSys.h"
+#include <VCLTee.TeCanvas.hpp>
 #include <vector>
+#include "Style.h"
 class HTMLDocument;
 class BrowserSys;
 //-------------------------------------------------------------------------
@@ -74,7 +76,6 @@ __published:	// IDE-managed Components
 	TAction *acCopy;
 	TAction *acPaste;
 	TAction *acCut;
-	TColorBox *cbTextColor;
 	TfrxFontComboBox *cbTextFont;
 	TComboBox *cbTextSize;
 	TComboBox *cbParFormat;
@@ -119,6 +120,7 @@ __published:	// IDE-managed Components
 	TToolButton *ToolButton16;
 	TAction *acUndo;
 	TAction *acRedo;
+	TButtonColor *bTextColor;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -148,6 +150,7 @@ __published:	// IDE-managed Components
 	void __fastcall acExitExecute(TObject *Sender);
 	void __fastcall acUndoExecute(TObject *Sender);
 	void __fastcall acRedoExecute(TObject *Sender);
+	void __fastcall bTextColorClick(TObject *Sender);
 
 
 

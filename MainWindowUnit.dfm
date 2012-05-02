@@ -317,13 +317,6 @@ object Form1: TForm1
         ParentShowHint = False
         ShowHint = True
       end
-      object cbTextColor: TColorBox
-        Left = 8
-        Top = 82
-        Width = 145
-        Height = 22
-        TabOrder = 0
-      end
       object cbTextFont: TfrxFontComboBox
         Left = 183
         Top = 82
@@ -332,7 +325,7 @@ object Form1: TForm1
         MRURegKey = '\Software\Fast Reports\MRUFont'
         Text = 'cbTextFont'
         DropDownCount = 12
-        TabOrder = 1
+        TabOrder = 0
       end
       object cbTextSize: TComboBox
         Left = 360
@@ -341,7 +334,7 @@ object Form1: TForm1
         Height = 21
         Style = csDropDownList
         ItemIndex = 0
-        TabOrder = 2
+        TabOrder = 1
         Text = #1053#1077' '#1079#1072#1076#1072#1085
         Items.Strings = (
           #1053#1077' '#1079#1072#1076#1072#1085
@@ -360,7 +353,7 @@ object Form1: TForm1
         Height = 21
         Style = csDropDownList
         ItemIndex = 0
-        TabOrder = 3
+        TabOrder = 2
         Text = #1054#1089#1085#1086#1074#1085#1086#1081' '#1090#1077#1082#1089#1090
         Items.Strings = (
           #1054#1089#1085#1086#1074#1085#1086#1081' '#1090#1077#1082#1089#1090
@@ -378,7 +371,7 @@ object Form1: TForm1
         Top = 12
         Width = 145
         Height = 21
-        TabOrder = 4
+        TabOrder = 3
         Text = 'cbStyle'
       end
     end
@@ -514,6 +507,13 @@ object Form1: TForm1
       Caption = 'Button1'
       TabOrder = 2
     end
+  end
+  object bTextColor: TButtonColor
+    Left = 8
+    Top = 114
+    Width = 92
+    TabOrder = 4
+    OnClick = bTextColorClick
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
@@ -730,7 +730,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010112001800A40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001800A80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000A03D07000000

@@ -323,3 +323,14 @@ void __fastcall TForm1::acRedoExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::bTextColorClick(TObject *Sender)
+{
+ShowMessage(IntToStr(static_cast <int>(ColorToRGB(bTextColor->SymbolColor))));
+Style style(0,bTextColor->SymbolColor,0,"",0);
+ShowMessage(IntToStr(static_cast <int>(ColorToRGB(style.getcolor()))));
+
+}
+//---------------------------------------------------------------------------
+

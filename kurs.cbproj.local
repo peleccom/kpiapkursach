@@ -1,25 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.848,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.555,D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.h=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.982,=D:\Ucheba\KPiAP\kursach\gui_builder\ABOUT.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.555,D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.dfm=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.848,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.590,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.547,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\myutils.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.555,D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.h=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.547,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\myutils.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.555,D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.cpp=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.639,=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.927,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.010,D:\Ucheba\KPiAP\kursach\gui_builder\kurs.cbproj=C:\Users\Alexander\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.590,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.010,D:\Ucheba\KPiAP\kursach\gui_builder\kurs.cbproj=C:\Users\Alexander\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.927,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.547,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\myutils.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.263,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
+    <Transaction>2012.05.02 10:58:43.018,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>2012.05.02 10:59:01.999,D:\Ucheba\KPiAP\kursach\gui_builder\Style.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>2012.05.02 10:59:01.999,D:\Ucheba\KPiAP\kursach\gui_builder\Style.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h</Transaction>
+    <Transaction>2012.05.02 11:07:43.009,=D:\Ucheba\KPiAP\kursach\gui_builder\Profiling\AQtimeModule1.aqt</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Profiling"/>
+    <File Path="Profiling\AQtimeModule1.aqt"/>
     <File Path="ABOUT.cpp"/>
     <File Path="ABOUT.cpp"/>
     <File Path="ABOUT.dfm"/>
@@ -35,5 +41,8 @@
     <File Path="BrowserSys.cpp"/>
     <File Path="BrowserSys.cpp"/>
     <File Path="BrowserSys.h"/>
+    <File Path="Style.cpp"/>
+    <File Path="Style.cpp"/>
+    <File Path="Style.h"/>
   </ProjectSortOrder>
 </BorlandProject>
