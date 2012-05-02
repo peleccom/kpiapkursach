@@ -224,14 +224,20 @@ void __fastcall TForm1::acUnderlineExecute(TObject *Sender)
 
 void __fastcall TForm1::acCopyExecute(TObject *Sender)
 {
-	browser->Copy();
+	if (RichEdit1->Focused())
+		RichEdit1->CopyToClipboard();
+	else
+		browser->Copy();
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::acPasteExecute(TObject *Sender)
 {
-	browser->Paste();
+	if (RichEdit1->Focused())
+		RichEdit1->PasteFromClipboard();
+	else
+		browser->Paste();
 }
 //---------------------------------------------------------------------------
 
@@ -270,7 +276,10 @@ void __fastcall TForm1::acSaveFileAsExecute(TObject *Sender)
 
 void __fastcall TForm1::acCutExecute(TObject *Sender)
 {
-	browser->Cut();
+	if (RichEdit1->Focused())
+		RichEdit1->CutToClipboard();
+	else
+		browser->Cut();
 }
 //---------------------------------------------------------------------------
 
