@@ -39,6 +39,7 @@ object Form1: TForm1
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    PopupMenu = PopupMenu1
     ScrollBars = ssVertical
     TabOrder = 0
     OnChange = RichEdit1Change
@@ -730,7 +731,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010112001800A80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001800B00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000A03D07000000
@@ -1402,5 +1403,27 @@ object Form1: TForm1
     OnTimer = tmUpdaterTimer
     Left = 208
     Top = 280
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 408
+    Top = 272
+    object N13: TMenuItem
+      Action = acCopy
+    end
+    object N14: TMenuItem
+      Action = acPaste
+    end
+    object N15: TMenuItem
+      Action = acCut
+    end
+    object N16: TMenuItem
+      Caption = '-'
+    end
+    object N17: TMenuItem
+      Action = acUndo
+    end
+    object N18: TMenuItem
+      Action = acRedo
+    end
   end
 end

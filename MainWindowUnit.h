@@ -121,6 +121,13 @@ __published:	// IDE-managed Components
 	TAction *acUndo;
 	TAction *acRedo;
 	TButtonColor *bTextColor;
+	TPopupMenu *PopupMenu1;
+	TMenuItem *N13;
+	TMenuItem *N14;
+	TMenuItem *N15;
+	TMenuItem *N16;
+	TMenuItem *N17;
+	TMenuItem *N18;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
