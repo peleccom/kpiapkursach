@@ -336,10 +336,24 @@ void __fastcall TForm1::acRedoExecute(TObject *Sender)
 
 void __fastcall TForm1::bTextColorClick(TObject *Sender)
 {
-ShowMessage(IntToStr(static_cast <int>(ColorToRGB(bTextColor->SymbolColor))));
-Style style(0,bTextColor->SymbolColor,0,"",0);
-ShowMessage(IntToStr(static_cast <int>(ColorToRGB(style.getcolor()))));
-
+	browser->SetColor(ColorToRGB(bTextColor->SymbolColor));
 }
 //---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TForm1::cbTextSizeSelect(TObject *Sender)
+{
+	int size = cbTextSize->ItemIndex;
+	browser->SetSize(size);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::cbTextFontClick(TObject *Sender)
+{
+	browser->SetFont(cbTextFont->Text);
+}
+//---------------------------------------------------------------------------
+
 

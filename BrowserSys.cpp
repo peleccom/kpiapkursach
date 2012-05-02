@@ -108,3 +108,30 @@ bool BrowserSys::CanUndo(){
 bool BrowserSys::CanRedo(){
 	return  wb->QueryStatusWB(Shdocvw::OLECMDID_REDO) > 1;
 }
+
+void BrowserSys::SetSize(int size){
+	Variant V;
+	if (size>7 || size <1)
+		V = "error";
+	else
+		V = IntToStr(size);
+	TxtRange()->execCommand(L"FontSize",false,V,&rec);
+}
+
+void BrowserSys::SetFont(const String &font){
+	Variant V = font;
+	TxtRange()->execCommand(L"FontName",false,V,&rec);
+}
+
+void BrowserSys::SetColor(int color){
+	Variant V = HtmlColor(color);
+	TxtRange()->execCommand(L"ForeColor",false,V,&rec);
+}
+
+const String BrowserSys::HtmlColor(int color){
+	String s;
+	TColor col;
+	col =  static_cast <TColor> (color);
+	s.sprintf(L"#%.2X%.2X%.2X",GetRValue(col),GetGValue(col),GetBValue(col));
+	return s;
+}

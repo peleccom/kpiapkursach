@@ -114,7 +114,6 @@ __published:	// IDE-managed Components
 	TMenuItem *N10;
 	TMenuItem *N12;
 	TTimer *tmUpdater;
-	TButton *Button1;
 	TToolButton *ToolButton7;
 	TToolButton *ToolButton15;
 	TToolButton *ToolButton16;
@@ -158,6 +157,8 @@ __published:	// IDE-managed Components
 	void __fastcall acUndoExecute(TObject *Sender);
 	void __fastcall acRedoExecute(TObject *Sender);
 	void __fastcall bTextColorClick(TObject *Sender);
+	void __fastcall cbTextSizeSelect(TObject *Sender);
+	void __fastcall cbTextFontClick(TObject *Sender);
 
 
 

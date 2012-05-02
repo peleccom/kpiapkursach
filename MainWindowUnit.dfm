@@ -39,6 +39,7 @@ object Form1: TForm1
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    PlainText = True
     PopupMenu = PopupMenu1
     ScrollBars = ssVertical
     TabOrder = 0
@@ -89,6 +90,8 @@ object Form1: TForm1
       Height = 113
       Align = alClient
       TabOrder = 0
+      ExplicitTop = 48
+      ExplicitHeight = 96
       object Label1: TLabel
         Left = 8
         Top = 46
@@ -327,6 +330,7 @@ object Form1: TForm1
         Text = 'cbTextFont'
         DropDownCount = 12
         TabOrder = 0
+        OnClick = cbTextFontClick
       end
       object cbTextSize: TComboBox
         Left = 360
@@ -337,6 +341,7 @@ object Form1: TForm1
         ItemIndex = 0
         TabOrder = 1
         Text = #1053#1077' '#1079#1072#1076#1072#1085
+        OnSelect = cbTextSizeSelect
         Items.Strings = (
           #1053#1077' '#1079#1072#1076#1072#1085
           '1'
@@ -499,14 +504,6 @@ object Form1: TForm1
           Action = acInsertHyperlink
         end
       end
-    end
-    object Button1: TButton
-      Left = 361
-      Top = 82
-      Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 2
     end
   end
   object bTextColor: TButtonColor
@@ -1405,6 +1402,7 @@ object Form1: TForm1
     Top = 280
   end
   object PopupMenu1: TPopupMenu
+    Images = ImageList1
     Left = 408
     Top = 272
     object N13: TMenuItem

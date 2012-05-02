@@ -6,6 +6,7 @@
 #include "SHDocVw_OCX.h"
 #include <SHDocVw.hpp>
 #include <mshtml.h>
+#include <Vcl.Graphics.hpp>
 class BrowserSys{
 	public:
 		BrowserSys(TCppWebBrowser *wb);
@@ -27,12 +28,16 @@ class BrowserSys{
 		void InsertImage();
 		void Undo();
 		void Redo();
+		void SetSize(int size);
+		void SetFont(const String &font);
+		void SetColor(int color);
 		IHTMLTxtRange* TxtRange();
 	private:
 		TCppWebBrowser *wb;
 		IHTMLDocument2 *Editor;
 		VARIANT var;
 		VARIANT_BOOL rec;
+		const String HtmlColor(int color);
 };
 
 //---------------------------------------------------------------------------
