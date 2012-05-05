@@ -90,8 +90,6 @@ object Form1: TForm1
       Height = 113
       Align = alClient
       TabOrder = 0
-      ExplicitTop = 48
-      ExplicitHeight = 96
       object Label1: TLabel
         Left = 8
         Top = 46
@@ -573,6 +571,7 @@ object Form1: TForm1
       Caption = '&'#1055#1086#1084#1086#1097#1100
       object AboutAction: TMenuItem
         Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
+        ShortCut = 112
         OnClick = AboutActionClick
       end
     end
@@ -728,7 +727,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010112001800B00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001800B80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000A03D07000000

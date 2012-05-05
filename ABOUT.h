@@ -12,6 +12,7 @@
 #include <StdCtrls.hpp>
 #include <Buttons.hpp>
 #include <ExtCtrls.hpp>
+#include <Vcl.Touch.GestureMgr.hpp>
 //----------------------------------------------------------------------------
 class TAboutBox : public TForm
 {
@@ -23,6 +24,9 @@ __published:
 	TLabel *Copyright;
 	TLabel *Comments;
 	TButton *OKButton;
+	TGestureManager *GestureManager1;
+	void __fastcall FormGesture(TObject *Sender, const TGestureEventInfo &EventInfo,
+          bool &Handled);
 private:
 public:
 	virtual __fastcall TAboutBox(TComponent* AOwner);

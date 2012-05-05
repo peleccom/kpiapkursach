@@ -355,5 +355,19 @@ void __fastcall TForm1::cbTextFontClick(TObject *Sender)
 	browser->SetFont(cbTextFont->Text);
 }
 //---------------------------------------------------------------------------
-
+ /*
+HRESULT TEventMethod::Invoke(
+  DISPID dispIdMember,
+  REFIID riid,
+  LCID lcid,
+  WORD wFlags,
+  DISPPARAMS FAR* pDispParams,
+  VARIANT FAR* pVarResult,
+  EXCEPINFO FAR* pExcepInfo,
+  unsigned int FAR* puArgErr
+)
+{
+ ShowMessage("Hello");
+ return 0;
+}  */
 

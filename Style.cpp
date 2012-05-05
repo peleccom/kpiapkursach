@@ -7,21 +7,23 @@
 #pragma package(smart_init)
 
 Style::Style(int size, int color, int paragraph,
-const char *font, int fontstyle){
+const char *font, int fontstyle, String stylename){
 	setsize(size);
 	setcolor(color);
 	setpar(paragraph);
 	setface(String(font));
 	setfontstyle(fontstyle);
+	setstylename(stylename);
 }
 
 Style::Style(int size, TColor color, int paragraph,
-const char *font, int fontstyle){
+const char *font, int fontstyle, String stylename){
 	setsize(size);
 	setcolor(color);
 	setpar(paragraph);
 	setface(String(font));
 	setfontstyle(fontstyle);
+	setstylename(stylename);
 }
 Style::Style(Style &obj){
 	setsize(obj.getsize());
@@ -29,6 +31,7 @@ Style::Style(Style &obj){
 	setpar(obj.getpar());
 	setface(obj.getface());
 	setfontstyle(obj.getfontstyle());
+	setstylename(obj.getstylename());
 }
 
 Style::Style(){
@@ -38,6 +41,7 @@ Style::Style(){
 	setpar(0);
 	setface(face);
 	setfontstyle(fsNONE);
+	setstylename("");
 }
 
 void Style::setsize(int size){
@@ -88,5 +92,25 @@ void Style::setfontstyle(int style){
 
 int Style::getfontstyle(){
 	return fontstyle;
+}
+
+String &Style::getstylename(){
+	return stylename;
+}
+
+void Style::setstylename(String stylename){
+	this->stylename = stylename;
+}
+
+void Style::write(ofstream &fs)
+{
+	// формат:
+//	"имя стиля" "size" "face" "par" "color" "fontstyle"
+//fs << stylename<< "|" << fontsize << "|" << fontface
+//   fs << int(4);
+}
+
+void Style::read(fstream &fs){
+// bar
 }
 
