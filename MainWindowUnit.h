@@ -27,6 +27,7 @@
 #include <VCLTee.TeCanvas.hpp>
 #include <vector>
 #include "Style.h"
+#include "StylesCollection.h"
 class HTMLDocument;
 class BrowserSys;
 
@@ -142,6 +143,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N16;
 	TMenuItem *N17;
 	TMenuItem *N18;
+	TButton *Button1;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -174,6 +176,7 @@ __published:	// IDE-managed Components
 	void __fastcall bTextColorClick(TObject *Sender);
 	void __fastcall cbTextSizeSelect(TObject *Sender);
 	void __fastcall cbTextFontClick(TObject *Sender);
+	void __fastcall Button1Click(TObject *Sender);
 
 
 
@@ -190,6 +193,9 @@ private:	// User declarations
 public:		// User declarations
 	static std::vector<TForm1 *> forms;
 	__fastcall TForm1(TComponent* Owner);
+
+	void SetStyleFromUI(Style *style); // set existing style params from UI
+	void SetStyleToUI(Style *style);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

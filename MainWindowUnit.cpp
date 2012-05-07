@@ -163,6 +163,11 @@ void __fastcall TForm1::acDeleteStyleExecute(TObject *Sender)
 void __fastcall TForm1::acSaveUserStyleExecute(TObject *Sender)
 {
 //
+String stylename;
+stylename = InputBox(L"Выберите имя для нового стиля",L"Имя стиля",L"Новый стиль");
+Style *style = new Style;
+
+
 }
 //---------------------------------------------------------------------------
 
@@ -370,4 +375,48 @@ HRESULT TEventMethod::Invoke(
  ShowMessage("Hello");
  return 0;
 }  */
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	Style *style = new Style(7,clRed,0,"Obama",fsNONE,"First style");
+	ofstream fs("C:\\tmp\\example.dat");
+	style->write(fs);
+	fs.close();
+	ifstream fs2("C:\\tmp\\example.dat");
+	delete style;
+	style = new Style;
+	style->read(fs2);
+	fs2.close();
+	ShowMessage(style->getstylename()+style->getface());
+	delete style;
+
+//StylesCollection *styles = new StylesCollection;
+//styles->LoadFromFile()
+}
+//---------------------------------------------------------------------------
+
+
+
+void TForm1::SetStyleFromUI(Style *style){
+	style->setsize(cbTextSize->ItemIndex);
+	style->setface(cbTextFont->Text);
+	style->setpar(cbParFormat->ItemIndex);
+	style->setcolor(ColorToRGB(bTextColor->SymbolColor));
+	int fontstyle = fsNONE;
+	if (acBold->Checked) fontstyle += fsBOLD;
+	if (acItalics->Checked) fontstyle += fsITALIC;
+	if (acUnderline->Checked) fontstyle += fsUNDERLINE;
+	style->setfontstyle(fontstyle);
+}
+
+void TForm1::SetStyleToUI(Style *style){
+	cbTextSize->ItemIndex = style->getsize();
+	cbTextFont->Text = style->getface();
+	bTextColor->SymbolColor = style->getcolor();
+	cbParFormat->ItemIndex = style-getpar();
+	int fontstyle = style->getfontstyle();
+	acBold->Checked = (fontstyle & fsBOLD == fsBOLD)?true:false;
+	acItalics->Checked = (fontstyle & fsITALIC == fsITALIC)?true:false;
+	acUnderline->Checked = (fontstyle & fsUNDERLINE == fsUNDERLINE)?true:false;
+}
 

@@ -89,6 +89,7 @@
 			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<DynamicRTL>false</DynamicRTL>
 			<BCC_AllCodeguardOptions>true</BCC_AllCodeguardOptions>
 			<BCC_MonitorThis>true</BCC_MonitorThis>
 			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
@@ -136,8 +137,8 @@
 				<DependentOn>StylesCollection.h</DependentOn>
 				<BuildOrder>7</BuildOrder>
 			</CppCompile>
-			<FormResources Include="MainWindowUnit.dfm"/>
 			<FormResources Include="ABOUT.dfm"/>
+			<FormResources Include="MainWindowUnit.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

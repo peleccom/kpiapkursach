@@ -511,6 +511,15 @@ object Form1: TForm1
     TabOrder = 4
     OnClick = bTextColorClick
   end
+  object Button1: TButton
+    Left = 672
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 5
+    OnClick = Button1Click
+  end
   object MainMenu1: TMainMenu
     Images = ImageList1
     Left = 616
@@ -632,17 +641,20 @@ object Form1: TForm1
       Caption = 'acShowDom'
     end
     object acUnderline: TAction
+      AutoCheck = True
       Caption = 'acUnderline'
       ImageIndex = 7
       OnExecute = acUnderlineExecute
     end
     object acBold: TAction
+      AutoCheck = True
       Caption = #1055#1086#1083#1091#1078#1080#1088#1085#1099#1081
       Hint = #1042#1099#1076#1077#1083#1080#1090#1100' '#1087#1086#1083#1091#1078#1080#1088#1085#1099#1084
       ImageIndex = 0
       OnExecute = acBoldExecute
     end
     object acItalics: TAction
+      AutoCheck = True
       Caption = 'acItalics'
       ImageIndex = 4
       OnExecute = acItalicsExecute
@@ -727,7 +739,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010112001800B80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001800C00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000A03D07000000
