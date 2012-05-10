@@ -47,7 +47,7 @@
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib;frx16.lib;fs16.lib;vclx.lib;vclimg.lib;Tee.lib;vcltouch.lib;xmlrtl.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib;frx16.lib;fs16.lib;vclx.lib;vclimg.lib;Tee.lib;vcltouch.lib;xmlrtl.lib;vclactnband.lib;FmxTeeUI.lib;FMXTee.lib;fmx.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
 			<IncludePath>D:\Ucheba\KPiAP\kursach\gui_builder\;$(IncludePath)</IncludePath>
@@ -95,7 +95,7 @@
 			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
 			<BCC_MonitorGlobalAndStackData>true</BCC_MonitorGlobalAndStackData>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi;frx16.bpi;fs16.bpi;vclx.bpi;vclimg.bpi;Tee.bpi;vcltouch.bpi;xmlrtl.bpi</LinkPackageImports>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi;frx16.bpi;fs16.bpi;vclx.bpi;vclimg.bpi;Tee.bpi;vcltouch.bpi;xmlrtl.bpi;vclactnband.bpi;FmxTeeUI.bpi;FMXTee.bpi;fmx.bpi</LinkPackageImports>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">

@@ -8,13 +8,12 @@
 
 void StylesCollection::FillComboBox(TComboBox *cb){
 	stylesvector::const_iterator i;
-	cb->Items->Clear();
 	for (i=styles.begin(); i != styles.end(); i++) {
 		cb->Items->AddObject((*i)->getstylename(),*i);
 	}
 }
 
-bool StylesCollection::LoadFromFile(String &filename){
+bool StylesCollection::LoadFromFile(String filename){
 	ifstream fs(filename.c_str());
 	if (!fs) { return false;}
 	int count;
@@ -29,7 +28,7 @@ bool StylesCollection::LoadFromFile(String &filename){
 }
 
 
-bool StylesCollection::SaveToFile(String &filename){
+bool StylesCollection::SaveToFile(String filename){
 	ofstream fs(filename.c_str());
 	if (!fs) { return false;}
 	int count = styles.size();
@@ -39,4 +38,24 @@ bool StylesCollection::SaveToFile(String &filename){
 	}
 	fs.close();
 	return true;
+}
+
+void StylesCollection::AddStyle(Style *style){
+	Style *buf_style;
+	buf_style = new Style(*style);
+	styles.push_back(buf_style);
+}
+
+void StylesCollection::DeleteStyle(String stylename){
+	stylesvector::iterator i;
+	Style *st;
+	for (i=styles.begin(); i != styles.end(); i++) {
+		st =*i;
+		if (st->getstylename() == stylename) {
+			// deleting
+			styles.erase(i);
+            delete st;
+			break;
+		}
+	}
 }

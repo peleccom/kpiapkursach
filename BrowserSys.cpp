@@ -48,11 +48,13 @@ IHTMLTxtRange* BrowserSys::TxtRange()
 {
 	IHTMLSelectionObject *sel;
 	BSTR SelType;
+	HRESULT hr;
 	IDispatch *range;
 	Editor->get_selection(&sel);
 	sel->get_type(&SelType);
 	if (String(SelType) != "Control") {
-		sel->createRange(&range);
+		hr = sel->createRange(&range);
+		if (!hr)
 		return static_cast <IHTMLTxtRange*> (range);	}
 	return NULL;
 }
@@ -135,3 +137,88 @@ const String BrowserSys::HtmlColor(int color){
 	s.sprintf(L"#%.2X%.2X%.2X",GetRValue(col),GetGValue(col),GetBValue(col));
 	return s;
 }
+
+
+int BrowserSys::GetSize(IHTMLTxtRange *TextRange){
+	tagVARIANT *v;
+	VARIANT v1;
+	HRESULT hr;
+	String s;
+	int res = 0;
+	BSTR text;
+	if (TextRange)
+	{
+	v =(tagVARIANT*) text;
+		hr =TextRange->queryCommandValue(L"jjj",v);
+		if(SUCCEEDED(hr))
+		{
+
+			v1 = *v;
+			if (VarIsNull(v1)) {
+				res =0;
+			}
+			else
+				s = v1.bstrVal;
+				res = StrToInt(s);
+		}
+		else res =0;
+	}
+
+	return res;
+}
+
+bool BrowserSys::isItalic(IHTMLTxtRange *TextRange){
+	HRESULT hr;
+	short sh;
+	if (TextRange) {
+		hr = TextRange->queryCommandState(L"Italic",&sh) ;
+		if (sh)
+			return true;
+		}
+	return false ;
+}
+
+bool BrowserSys::isBold(IHTMLTxtRange *TextRange){
+	short sh;
+	if (TextRange) {
+		TextRange->queryCommandState(L"Bold",&sh) ;
+		if (sh)
+			return true;
+		}
+	return false ;
+}
+
+bool BrowserSys::isUnderline(IHTMLTxtRange *TextRange){
+	short sh;
+	if (TextRange) {
+		TextRange->queryCommandState(L"Underline",&sh) ;
+		if (sh)
+			return true;
+		}
+	return false ;
+}
+
+
+void BrowserSys::SetStyle(Style *style){
+	SetSize(style->getsize());
+	SetColor(style->getcolor());
+	SetFont(style->getface());
+	int k = style->getfontstyle();
+	if	(k & fsBOLD == fsBOLD)
+	 this->Bold();
+	if (k & fsITALIC == fsITALIC)
+		this->Italic();
+	if (k & fsUNDERLINE == fsUNDERLINE)
+		this->UnderLine();
+}
+
+String BrowserSys::GetText(){
+	IHTMLElement* pElement;
+	BSTR s;
+	if (FAILED(Editor->get_body(&pElement))) return NULL;
+	pElement->get_parentElement(&pElement);
+	pElement->get_outerHTML(&s);
+	pElement->Release();
+	return String(s);
+}
+

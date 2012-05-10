@@ -17,6 +17,7 @@ Style();
 Style(int size, int color, int paragraph,const char *font,int fontstyle, String stylename = "");
 Style(int size, TColor color, int paragraph,const char *font,int fontstyle, String stylename = "");
 Style(const Style &obj);
+Style& operator=(const Style& right);
 void setsize(int);
 int getsize() const;
 void setface(String face);

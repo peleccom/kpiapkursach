@@ -13,10 +13,11 @@ class HTMLDocument
 	void OpenFile(const String &filename);
 	void SaveFile(const String &filename);
 	bool changed(); // content changed ?
+	void setchanged(bool flag);
 	void Update(const String &html); // every time then update content
 	String GetHTML();
-   private:
 	String html;
+   private:
 	bool _changed;
 	TRichEdit *rcedit;
 	TCppWebBrowser *wb;

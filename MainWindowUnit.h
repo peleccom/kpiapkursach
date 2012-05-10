@@ -30,21 +30,6 @@
 #include "StylesCollection.h"
 class HTMLDocument;
 class BrowserSys;
-
-/* class TEventMethod : public IDispatch
- {
-  public:
-HRESULT Invoke(
-		 DISPID dispIdMember,
-		 REFIID riid,
-		 LCID lcid,
-		 WORD wFlags,
-	DISPPARAMS *pDispParams,
-		VARIANT *pVarResult,
-		EXCEPINFO *pExcepInfo,
-		UINT *puArgErr
-);
- };  */
 //-------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -68,8 +53,6 @@ __published:	// IDE-managed Components
 	TMenuItem *N5;
 	TMenuItem *NCloseDocument;
 	TMenuItem *N7;
-	TMenuItem *N6;
-	TMenuItem *DOM1;
 	TActionList *ActionList1;
 	TAction *acOpenFile;
 	TAction *acSaveFile;
@@ -86,8 +69,6 @@ __published:	// IDE-managed Components
 	TImageList *ImageList1;
 	TPanel *Panel1;
 	TPanel *pCustomStyle;
-	TMenuItem *N8;
-	TMenuItem *N11;
 	TAction *acSwitchEditMode;
 	TAction *acCopy;
 	TAction *acPaste;
@@ -106,7 +87,6 @@ __published:	// IDE-managed Components
 	TLabel *Label4;
 	TSpeedButton *SpeedButton2;
 	TAction *acEditStyle;
-	TSpeedButton *SpeedButton3;
 	TAction *acClose;
 	TControlBar *ControlBar1;
 	TToolBar *ToolBar2;
@@ -143,15 +123,12 @@ __published:	// IDE-managed Components
 	TMenuItem *N16;
 	TMenuItem *N17;
 	TMenuItem *N18;
-	TButton *Button1;
 	void __fastcall AboutActionClick(TObject *Sender);
 	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-	void __fastcall WebBrowser1DownloadComplete(TObject *Sender);
-	void __fastcall DOM1Click(TObject *Sender);
 	void __fastcall acOpenFileExecute(TObject *Sender);
 	void __fastcall acEditStyleExecute(TObject *Sender);
 	void __fastcall acDeleteStyleExecute(TObject *Sender);
@@ -176,7 +153,10 @@ __published:	// IDE-managed Components
 	void __fastcall bTextColorClick(TObject *Sender);
 	void __fastcall cbTextSizeSelect(TObject *Sender);
 	void __fastcall cbTextFontClick(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall cbStyleSelect(TObject *Sender);
+	void __fastcall WebBrowser1DocumentComplete(TObject *Sender, LPDISPATCH pDisp, Variant *URL);
+
+
 
 
 
@@ -190,6 +170,8 @@ private:	// User declarations
 	BrowserSys *browser;
 	IHTMLDocument2 *Editor; // интерфейc браузера
 	String FormTitle;
+	StylesCollection *defaultstyles,*styles;
+	Style *curstyle;
 public:		// User declarations
 	static std::vector<TForm1 *> forms;
 	__fastcall TForm1(TComponent* Owner);

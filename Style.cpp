@@ -151,3 +151,15 @@ String Style::LoadString(ifstream &fs){
 	return s;
 }
 
+Style& Style::operator=(const Style& right){
+	if (this == &right) {
+		return *this;
+	}
+	setsize(right.getsize());
+	setcolor(right.getcolor());
+	setpar(right.getpar());
+	setface(right.getface());
+	setfontstyle(right.getfontstyle());
+	setstylename(right.getstylename());//??
+	return *this;
+}

@@ -65,6 +65,7 @@ bool HTMLDocument::changed(){
 HTMLDocument::HTMLDocument(TRichEdit *rche, TCppWebBrowser *wbrowser):
 												rcedit(rche),wb(wbrowser)
 {
+	String s;
 	wb->Silent = true;
 	wb->Navigate(WideString("about:blank").c_bstr());
 	while (wb->ReadyState < ::READYSTATE_INTERACTIVE)
@@ -85,3 +86,6 @@ else
 }
 
 
+void HTMLDocument::setchanged(bool flag){
+	_changed = flag;
+}

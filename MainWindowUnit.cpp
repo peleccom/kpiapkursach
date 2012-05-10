@@ -32,7 +32,14 @@ AboutBox->ShowModal();
 
 void __fastcall TForm1::RichEdit1Change(TObject *Sender)
 {
- doc->Update(RichEdit1->Lines->Text);
+if (RichEdit1->Lines->Text != doc->GetHTML()) {
+	doc->setchanged(true);
+	doc->html = RichEdit1->Lines->Text;
+}
+if (RichEdit1->Focused()) {
+	doc->Update(RichEdit1->Lines->Text);
+}
+
 
 
 }
@@ -43,8 +50,33 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 {
 browser = new BrowserSys(WebBrowser1);
 doc= new HTMLDocument(RichEdit1, WebBrowser1);
+doc->setchanged(false);
 FormTitle = "Редактор HTML - " ;
 forms.push_back(this);
+defaultstyles = new StylesCollection;
+styles = new StylesCollection;
+styles->LoadFromFile("styles.dat");
+curstyle = new Style;
+Style *st;
+st = new Style(0,clBlack,0,"",fsNONE,L"Текущий стиль");
+*curstyle =*st;
+defaultstyles->AddStyle(st);
+delete st;
+st = new Style(7,clRed,0,"",fsBOLD,L"Заголовок");
+defaultstyles->AddStyle(st);
+delete st;
+st = new Style(1,clBlack,0,"",fsNONE,L"Маленький");
+defaultstyles->AddStyle(st);
+delete st;
+st = new Style(7,clBlack,0,"",fsNONE,L"Огромный");
+defaultstyles->AddStyle(st);
+delete st;
+st = new Style(0,clBlue,0,"",fsUNDERLINE,L"Ссылка");
+defaultstyles->AddStyle(st);
+delete st;
+defaultstyles->FillComboBox(cbStyle);
+styles->FillComboBox(cbStyle);
+cbStyle->ItemIndex = 0;
 }
 //---------------------------------------------------------------------------
 
@@ -52,6 +84,10 @@ void __fastcall TForm1::FormDestroy(TObject *Sender)
 {
 delete doc;
 delete browser;
+styles->SaveToFile("styles.dat");
+delete styles;
+delete defaultstyles;
+delete curstyle;
 }
 //---------------------------------------------------------------------------
 
@@ -85,29 +121,13 @@ void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
   Action = caFree; // необходима для автоуничтожения формы при закрытии
-}
-//---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::WebBrowser1DownloadComplete(TObject *Sender)
-{
-	//browser.InitInterfaces();
-	HRESULT hr;
-	if (browser->InitInterfaces())
-		browser->EditMode(true);
-	tmUpdater->Enabled = true;
-	tmUpdater->OnTimer(Sender);
 
 }
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::DOM1Click(TObject *Sender)
-{
-DOM1->Checked = ! DOM1->Checked;
-TreeView1->Visible = DOM1->Checked;
-}
-//---------------------------------------------------------------------------
+
+
 
 
 
@@ -156,7 +176,17 @@ void __fastcall TForm1::acEditStyleExecute(TObject *Sender)
 
 void __fastcall TForm1::acDeleteStyleExecute(TObject *Sender)
 {
-//
+String stylename;
+int index =cbStyle->ItemIndex;
+stylename = cbStyle->Items->Strings[index];
+if (stylename[1] == '@'){
+	styles->DeleteStyle(stylename);
+	cbStyle->Clear();
+defaultstyles->FillComboBox(cbStyle);
+styles->FillComboBox(cbStyle);
+cbStyle->ItemIndex = 0;
+	}
+
 }
 //---------------------------------------------------------------------------
 
@@ -166,7 +196,13 @@ void __fastcall TForm1::acSaveUserStyleExecute(TObject *Sender)
 String stylename;
 stylename = InputBox(L"Выберите имя для нового стиля",L"Имя стиля",L"Новый стиль");
 Style *style = new Style;
-
+*style = *curstyle;
+style->setstylename("@"+stylename);
+styles->AddStyle(style);
+cbStyle->Clear();
+defaultstyles->FillComboBox(cbStyle);
+styles->FillComboBox(cbStyle);
+cbStyle->ItemIndex = cbStyle->Items->Count -1;
 
 }
 //---------------------------------------------------------------------------
@@ -309,7 +345,22 @@ void __fastcall TForm1::tmUpdaterTimer(TObject *Sender)
 	acCut->Enabled = browser->CanCut();
 	acCopy->Enabled = browser->CanCopy();
 	acPaste->Enabled = browser->CanPaste();
-}
+
+
+	if (!RichEdit1->Focused()) {
+		RichEdit1->Text = browser->GetText();
+		//WebBrowser1->SetFocus();
+	}
+	if (this->Visible) {
+	IHTMLTxtRange *range = browser->TxtRange();
+	if (range != NULL) {
+	acBold->Checked =browser->isBold(range);
+	acItalics->Checked =browser->isItalic(range);
+	acUnderline->Checked =browser->isUnderline(range);
+	}}
+	// exper
+
+	}
 //---------------------------------------------------------------------------
 
 
@@ -341,6 +392,8 @@ void __fastcall TForm1::acRedoExecute(TObject *Sender)
 
 void __fastcall TForm1::bTextColorClick(TObject *Sender)
 {
+	curstyle->setcolor(ColorToRGB(bTextColor->SymbolColor));
+	cbStyle->ItemIndex = 0;
 	browser->SetColor(ColorToRGB(bTextColor->SymbolColor));
 }
 //---------------------------------------------------------------------------
@@ -351,12 +404,16 @@ void __fastcall TForm1::bTextColorClick(TObject *Sender)
 void __fastcall TForm1::cbTextSizeSelect(TObject *Sender)
 {
 	int size = cbTextSize->ItemIndex;
+	cbStyle->ItemIndex = 0;
+	curstyle->setsize(size);
 	browser->SetSize(size);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::cbTextFontClick(TObject *Sender)
 {
+	curstyle->setface(cbTextFont->Text);
+	cbStyle->ItemIndex = 0;
 	browser->SetFont(cbTextFont->Text);
 }
 //---------------------------------------------------------------------------
@@ -376,24 +433,6 @@ HRESULT TEventMethod::Invoke(
  return 0;
 }  */
 
-void __fastcall TForm1::Button1Click(TObject *Sender)
-{
-	Style *style = new Style(7,clRed,0,"Obama",fsNONE,"First style");
-	ofstream fs("C:\\tmp\\example.dat");
-	style->write(fs);
-	fs.close();
-	ifstream fs2("C:\\tmp\\example.dat");
-	delete style;
-	style = new Style;
-	style->read(fs2);
-	fs2.close();
-	ShowMessage(style->getstylename()+style->getface());
-	delete style;
-
-//StylesCollection *styles = new StylesCollection;
-//styles->LoadFromFile()
-}
-//---------------------------------------------------------------------------
 
 
 
@@ -413,10 +452,40 @@ void TForm1::SetStyleToUI(Style *style){
 	cbTextSize->ItemIndex = style->getsize();
 	cbTextFont->Text = style->getface();
 	bTextColor->SymbolColor = style->getcolor();
-	cbParFormat->ItemIndex = style-getpar();
+	//cbParFormat->ItemIndex = style-getpar();
 	int fontstyle = style->getfontstyle();
-	acBold->Checked = (fontstyle & fsBOLD == fsBOLD)?true:false;
-	acItalics->Checked = (fontstyle & fsITALIC == fsITALIC)?true:false;
-	acUnderline->Checked = (fontstyle & fsUNDERLINE == fsUNDERLINE)?true:false;
+	acBold->Checked = ((fontstyle & fsBOLD) == fsBOLD);
+	acItalics->Checked = ((fontstyle & fsITALIC) == fsITALIC);
+	acUnderline->Checked = ((fontstyle & fsUNDERLINE) == fsUNDERLINE);
 }
+
+
+
+void __fastcall TForm1::cbStyleSelect(TObject *Sender)
+{
+	int index = 	cbStyle->ItemIndex;
+	Style *style = (Style*)cbStyle->Items->Objects[index];
+	*curstyle = *style;
+	browser->SetStyle(style);
+	SetStyleToUI(style);
+}
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TForm1::WebBrowser1DocumentComplete(TObject *Sender, LPDISPATCH pDisp,
+          Variant *URL)
+{
+	//browser.InitInterfaces();
+	HRESULT hr;
+	if (browser->InitInterfaces())
+		browser->EditMode(true);
+	tmUpdater->Enabled = true;
+	tmUpdater->OnTimer(Sender);
+
+}
+//---------------------------------------------------------------------------
+
+
 

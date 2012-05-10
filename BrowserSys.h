@@ -7,6 +7,7 @@
 #include <SHDocVw.hpp>
 #include <mshtml.h>
 #include <Vcl.Graphics.hpp>
+#include "Style.h"
 class BrowserSys{
 	public:
 		BrowserSys(TCppWebBrowser *wb);
@@ -31,7 +32,15 @@ class BrowserSys{
 		void SetSize(int size);
 		void SetFont(const String &font);
 		void SetColor(int color);
+		int GetSize(IHTMLTxtRange* TextRange);
+		String  GetFont();
+		int GetColor();
+		bool isItalic(IHTMLTxtRange* TextRange);
+		bool isBold(IHTMLTxtRange* TextRange);
+		bool isUnderline(IHTMLTxtRange* TextRange);
 		IHTMLTxtRange* TxtRange();
+		void SetStyle(Style *style);
+		String GetText();
 	private:
 		TCppWebBrowser *wb;
 		IHTMLDocument2 *Editor;

@@ -62,7 +62,7 @@ object Form1: TForm1
     Height = 308
     Align = alClient
     TabOrder = 2
-    OnDownloadComplete = WebBrowser1DownloadComplete
+    OnDocumentComplete = WebBrowser1DocumentComplete
     ExplicitLeft = 346
     ExplicitTop = 128
     ExplicitWidth = 300
@@ -290,7 +290,7 @@ object Form1: TForm1
           00000000000000000000000000000000000000000000000000000000}
       end
       object SpeedButton1: TSpeedButton
-        Left = 219
+        Left = 204
         Top = 0
         Width = 117
         Height = 40
@@ -302,6 +302,7 @@ object Form1: TForm1
         Width = 96
         Height = 13
         Caption = #1060#1086#1088#1084#1072#1090' '#1087#1072#1088#1072#1075#1088#1072#1092#1072
+        Visible = False
       end
       object SpeedButton2: TSpeedButton
         Left = 360
@@ -309,15 +310,6 @@ object Form1: TForm1
         Width = 124
         Height = 40
         Action = acDeleteStyle
-      end
-      object SpeedButton3: TSpeedButton
-        Left = 505
-        Top = 0
-        Width = 113
-        Height = 40
-        Action = acEditStyle
-        ParentShowHint = False
-        ShowHint = True
       end
       object cbTextFont: TfrxFontComboBox
         Left = 183
@@ -359,6 +351,7 @@ object Form1: TForm1
         ItemIndex = 0
         TabOrder = 2
         Text = #1054#1089#1085#1086#1074#1085#1086#1081' '#1090#1077#1082#1089#1090
+        Visible = False
         Items.Strings = (
           #1054#1089#1085#1086#1074#1085#1086#1081' '#1090#1077#1082#1089#1090
           #1040#1073#1079#1072#1094
@@ -371,12 +364,13 @@ object Form1: TForm1
           #1041#1077#1079' '#1092#1086#1088#1084#1072#1090#1080#1088#1086#1074#1072#1085#1080#1103)
       end
       object cbStyle: TComboBox
-        Left = 50
-        Top = 12
+        Left = 42
+        Top = 6
         Width = 145
         Height = 21
+        Style = csDropDownList
         TabOrder = 3
-        Text = 'cbStyle'
+        OnSelect = cbStyleSelect
       end
     end
     object ControlBar1: TControlBar
@@ -511,15 +505,6 @@ object Form1: TForm1
     TabOrder = 4
     OnClick = bTextColorClick
   end
-  object Button1: TButton
-    Left = 672
-    Top = 56
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
-    TabOrder = 5
-    OnClick = Button1Click
-  end
   object MainMenu1: TMainMenu
     Images = ImageList1
     Left = 616
@@ -561,19 +546,6 @@ object Form1: TForm1
       end
       object N12: TMenuItem
         Action = acPaste
-      end
-    end
-    object N6: TMenuItem
-      Caption = #1042#1080#1076
-      object DOM1: TMenuItem
-        Caption = #1055#1086#1082#1072#1079#1099#1074#1072#1090#1100' DOM'
-        OnClick = DOM1Click
-      end
-    end
-    object N8: TMenuItem
-      Caption = #1057#1090#1080#1083#1080
-      object N11: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100' '#1088#1077#1076#1072#1082#1090#1086#1088' '#1089#1090#1080#1083#1077#1081
       end
     end
     object N2: TMenuItem
@@ -739,7 +711,7 @@ object Form1: TForm1
     Left = 392
     Top = 240
     Bitmap = {
-      494C010112001800C00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001800E00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000A03D07000000

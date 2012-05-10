@@ -14,11 +14,11 @@ typedef vector<Style*> stylesvector;
 
 class StylesCollection{
 public:
-	bool LoadFromFile(String &filename);
-	bool SaveToFile(String &filename);
+	bool LoadFromFile(String filename);
+	bool SaveToFile(String filename);
 	void FillComboBox(TComboBox *cb);
 	void AddStyle(Style *style);
-	bool DeleteStyle(String stylename); // maybe ??
+	void DeleteStyle(String stylename); // maybe ??
 private:
 	stylesvector styles;
 };
