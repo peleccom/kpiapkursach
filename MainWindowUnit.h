@@ -22,14 +22,15 @@
 #include <Vcl.Graphics.hpp>
 //---------------------------------------------------------------------------
 #include <mshtml.h>
-#include "myutils.h"
-#include "BrowserSys.h"
+
+
 #include <VCLTee.TeCanvas.hpp>
+#include <Vcl.StdActns.hpp>
 #include <vector>
 #include "Style.h"
 #include "StylesCollection.h"
-class HTMLDocument;
-class BrowserSys;
+#include "DocumentFormUnit.h"
+
 //-------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -42,12 +43,6 @@ __published:	// IDE-managed Components
 	TMenuItem *NOpenDocument;
 	TMenuItem *AboutAction;
 	TMenuItem *NSaveDocument;
-	TRichEdit *RichEdit1;
-	TSplitter *Splitter1;
-	TTreeView *TreeView1;
-	TOpenDialog *OpenDocumentDialog;
-	TSaveDialog *SaveDocumentDialog;
-	TCppWebBrowser *WebBrowser1;
 	TMenuItem *N3;
 	TMenuItem *N4;
 	TMenuItem *N5;
@@ -75,19 +70,38 @@ __published:	// IDE-managed Components
 	TAction *acCut;
 	TfrxFontComboBox *cbTextFont;
 	TComboBox *cbTextSize;
-	TComboBox *cbParFormat;
-	TLabel *Label1;
 	TLabel *Label2;
 	TLabel *Label3;
-	TImage *Image1;
-	TComboBox *cbStyle;
 	TAction *acSaveUserStyle;
-	TSpeedButton *SpeedButton1;
 	TAction *acDeleteStyle;
-	TLabel *Label4;
-	TSpeedButton *SpeedButton2;
-	TAction *acEditStyle;
 	TAction *acClose;
+	TMenuItem *Gh1;
+	TMenuItem *N9;
+	TMenuItem *N10;
+	TMenuItem *N12;
+	TTimer *tmUpdater;
+	TAction *acUndo;
+	TAction *acRedo;
+	TPopupMenu *PopupMenu1;
+	TMenuItem *N13;
+	TMenuItem *N14;
+	TMenuItem *N15;
+	TMenuItem *N16;
+	TMenuItem *N17;
+	TMenuItem *N18;
+	TMenuItem *N6;
+	TMenuItem *N8;
+	TMenuItem *N11;
+	TWindowCascade *WindowCascade1;
+	TWindowTileHorizontal *WindowTileHorizontal1;
+	TWindowTileVertical *WindowTileVertical1;
+	TWindowMinimizeAll *WindowMinimizeAll1;
+	TWindowArrange *WindowArrange1;
+	TMenuItem *ileHorizontally1;
+	TMenuItem *ileVertically1;
+	TMenuItem *Arrange1;
+	TSaveDialog *SaveDocumentDialog;
+	TOpenDialog *OpenDocumentDialog;
 	TControlBar *ControlBar1;
 	TToolBar *ToolBar2;
 	TToolButton *ToolButton14;
@@ -98,6 +112,9 @@ __published:	// IDE-managed Components
 	TToolButton *ToolButton11;
 	TToolButton *ToolButton12;
 	TToolButton *ToolButton13;
+	TToolButton *ToolButton7;
+	TToolButton *ToolButton15;
+	TToolButton *ToolButton16;
 	TToolBar *ToolBar1;
 	TToolButton *ToolButton1;
 	TToolButton *ToolButton2;
@@ -105,32 +122,16 @@ __published:	// IDE-managed Components
 	TToolButton *ToolButton4;
 	TToolButton *ToolButton5;
 	TToolButton *ToolButton6;
-	TMenuItem *Gh1;
-	TMenuItem *N9;
-	TMenuItem *N10;
-	TMenuItem *N12;
-	TTimer *tmUpdater;
-	TToolButton *ToolButton7;
-	TToolButton *ToolButton15;
-	TToolButton *ToolButton16;
-	TAction *acUndo;
-	TAction *acRedo;
 	TButtonColor *bTextColor;
-	TPopupMenu *PopupMenu1;
-	TMenuItem *N13;
-	TMenuItem *N14;
-	TMenuItem *N15;
-	TMenuItem *N16;
-	TMenuItem *N17;
-	TMenuItem *N18;
+	TLabel *Label1;
+	TLabel *Label4;
+	TComboBox *cbStyle;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
 	void __fastcall AboutActionClick(TObject *Sender);
-	void __fastcall RichEdit1Change(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormDestroy(TObject *Sender);
-	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall acOpenFileExecute(TObject *Sender);
-	void __fastcall acEditStyleExecute(TObject *Sender);
 	void __fastcall acDeleteStyleExecute(TObject *Sender);
 	void __fastcall acSaveUserStyleExecute(TObject *Sender);
 	void __fastcall acCloseExecute(TObject *Sender);
@@ -154,30 +155,15 @@ __published:	// IDE-managed Components
 	void __fastcall cbTextSizeSelect(TObject *Sender);
 	void __fastcall cbTextFontClick(TObject *Sender);
 	void __fastcall cbStyleSelect(TObject *Sender);
-	void __fastcall WebBrowser1DocumentComplete(TObject *Sender, LPDISPATCH pDisp, Variant *URL);
-
-
-
-
-
-
-
-
-
-
 private:	// User declarations
-	HTMLDocument *doc;
-	BrowserSys *browser;
-	IHTMLDocument2 *Editor; // интерфейc браузера
 	String FormTitle;
-	StylesCollection *defaultstyles,*styles;
+	StylesCollection *defaultstyles,*styles;  //указатель на коллекции стандарных
+		//и пользовательских стилей
 	Style *curstyle;
 public:		// User declarations
-	static std::vector<TForm1 *> forms;
 	__fastcall TForm1(TComponent* Owner);
-
-	void SetStyleFromUI(Style *style); // set existing style params from UI
-	void SetStyleToUI(Style *style);
+	void SetStyleToUI(Style *style); // установить элементы управления стилем
+		// в соответсвие со стилем style
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

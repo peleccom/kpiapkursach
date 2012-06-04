@@ -47,7 +47,7 @@
 			<PackageImports>DataSnapIndy10ServerTransport;bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;CustomIPTransport;dsnap;DBXInformixDriver;fmxase;IndyCore;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;IPIndyImpl;dbexpress;$(PackageImports)</PackageImports>
 			<Multithreaded>true</Multithreaded>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib;frx16.lib;fs16.lib;vclx.lib;vclimg.lib;Tee.lib;vcltouch.lib;xmlrtl.lib;vclactnband.lib;FmxTeeUI.lib;FMXTee.lib;fmx.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;vclie.lib;bcbie.lib;frx16.lib;fs16.lib;vclx.lib;vclimg.lib;Tee.lib;vcltouch.lib;xmlrtl.lib;vclactnband.lib;FmxTeeUI.lib;FMXTee.lib;fmx.lib;fmxobj.lib;fmxdae.lib;fmxase.lib</AllPackageLibs>
 			<Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
 			<IncludePath>D:\Ucheba\KPiAP\kursach\gui_builder\;$(IncludePath)</IncludePath>
@@ -90,12 +90,11 @@
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
 			<DynamicRTL>false</DynamicRTL>
-			<BCC_AllCodeguardOptions>true</BCC_AllCodeguardOptions>
 			<BCC_MonitorThis>true</BCC_MonitorThis>
 			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
 			<BCC_MonitorGlobalAndStackData>true</BCC_MonitorGlobalAndStackData>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi;frx16.bpi;fs16.bpi;vclx.bpi;vclimg.bpi;Tee.bpi;vcltouch.bpi;xmlrtl.bpi;vclactnband.bpi;FmxTeeUI.bpi;FMXTee.bpi;fmx.bpi</LinkPackageImports>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi;frx16.bpi;fs16.bpi;vclx.bpi;vclimg.bpi;Tee.bpi;vcltouch.bpi;xmlrtl.bpi;vclactnband.bpi;FmxTeeUI.bpi;FMXTee.bpi;fmx.bpi;fmxobj.bpi;fmxdae.bpi;fmxase.bpi</LinkPackageImports>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -103,7 +102,10 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi</LinkPackageImports>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<DynamicRTL>false</DynamicRTL>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;vclie.bpi;bcbie.bpi;frx16.bpi;fs16.bpi;vclx.bpi;vclimg.bpi;Tee.bpi;vcltouch.bpi;xmlrtl.bpi;vclactnband.bpi;FmxTeeUI.bpi;FMXTee.bpi;fmx.bpi;fmxobj.bpi;fmxdae.bpi;fmxase.bpi</LinkPackageImports>
 		</PropertyGroup>
 		<ItemGroup>
 			<CppCompile Include="ABOUT.cpp">
@@ -115,6 +117,16 @@
 				<DependentOn>BrowserSys.h</DependentOn>
 				<BuildOrder>4</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="DocumentFormUnit.cpp">
+				<Form>DocumentForm</Form>
+				<FormType>dfm</FormType>
+				<DependentOn>DocumentFormUnit.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="HTMLDocument.cpp">
+				<DependentOn>HTMLDocument.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="kurs.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
@@ -124,10 +136,9 @@
 				<DependentOn>MainWindowUnit.h</DependentOn>
 				<BuildOrder>1</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="myutils.cpp">
-				<DependentOn>myutils.h</DependentOn>
-				<BuildOrder>4</BuildOrder>
-			</CppCompile>
+			<None Include="ModelSupport_kurs\default.txaPackage"/>
+			<None Include="ModelSupport_kurs\default.txvpck"/>
+			<None Include="ModelSupport_kurs\std\default.txvpck"/>
 			<None Include="Profiling\AQtimeModule1.aqt"/>
 			<CppCompile Include="Style.cpp">
 				<DependentOn>Style.h</DependentOn>
@@ -137,6 +148,7 @@
 				<DependentOn>StylesCollection.h</DependentOn>
 				<BuildOrder>7</BuildOrder>
 			</CppCompile>
+			<FormResources Include="DocumentFormUnit.dfm"/>
 			<FormResources Include="ABOUT.dfm"/>
 			<FormResources Include="MainWindowUnit.dfm"/>
 			<BuildConfiguration Include="Release">
@@ -198,13 +210,176 @@
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 					</Excluded_Packages>
 				</CPlusPlusBuilder.Personality>
-				<Deployment/>
+				<Deployment>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vcl160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vclactnband160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vclx160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\rtl160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DebugSymbols" Configuration="Debug" LocalName=".\Win32\Debug\kurs.tds">
+						<Platform Name="Win32">
+							<RemoteName>kurs.tds</RemoteName>
+						</Platform>
+					</DeployFile>
+					<DeployFile Class="DependencyModule" Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\FMXTee9160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\fmxase162.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyModule" Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32120mt.dll">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\Tee9160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\fmxdae162.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\xmlrtl160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\bcbie160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="C:\Windows\system32\frx16.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\fmx162.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="ProjectOutput" Configuration="Debug" LocalName=".\Win32\Debug\kurs.exe">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\FmxTeeUI9160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\fmxobj162.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyModule" Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgstl.dylib">
+						<Platform Name="OSX32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vclimg160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="C:\Windows\system32\fs16.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vcltouch160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyModule" Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32120.dll">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyModule" Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib">
+						<Platform Name="OSX32"/>
+					</DeployFile>
+					<DeployFile Class="DependencyPackage" Configuration="Debug" LocalName="$(BDS)\Redist\Win32\vclie160.bpl">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployClass Name="ProjectOutput" Required="true">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyPackage" Required="true">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.dylib</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+							<Extensions>.bpl</Extensions>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyModule">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.dylib</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+							<Extensions>.dll;.bpl</Extensions>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="ProjectOSXInfoPList">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="File">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>0</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DebugSymbols">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyFramework">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.framework</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="AdditionalDebugSymbols">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="ProjectOSXResource">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\Resources</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+					</DeployClass>
+					<ProjectRoot Name="$(PROJECTNAME).app" Platform="OSX32"/>
+					<ProjectRoot Name="$(PROJECTNAME)" Platform="Win64"/>
+					<ProjectRoot Name="$(PROJECTNAME)" Platform="Win32"/>
+				</Deployment>
 				<Platforms>
 					<Platform value="Win32">True</Platform>
 				</Platforms>
+				<ModelSupport>True</ModelSupport>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>
 		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
 		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<Import Condition="Exists('$(MSBuildProjectName).deployproj')" Project="$(MSBuildProjectName).deployproj"/>
 	</Project>

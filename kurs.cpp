@@ -26,8 +26,18 @@
 
 
 
-USEFORM("MainWindowUnit.cpp", Form1);
+
+
+
+
+
+
+
+
+
+USEFORM("DocumentFormUnit.cpp", DocumentForm);
 USEFORM("ABOUT.cpp", AboutBox);
+USEFORM("MainWindowUnit.cpp", Form1);
 //---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

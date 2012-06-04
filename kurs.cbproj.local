@@ -1,32 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.848,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.590,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.334,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\StylesCollection.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.010,C:\Users\Alexander\Documents\RAD Studio\Projects\Project1.cbproj=D:\Ucheba\KPiAP\kursach\gui_builder\kurs.cbproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.018,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.627,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.334,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\StylesCollection.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.999,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Style.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.982,=D:\Ucheba\KPiAP\kursach\gui_builder\ABOUT.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.999,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\Style.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.927,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.263,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.555,C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.h=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.555,C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.018,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.999,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Style.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.555,C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.009,=D:\Ucheba\KPiAP\kursach\gui_builder\Profiling\AQtimeModule1.aqt</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.334,D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h=D:\Ucheba\KPiAP\kursach\gui_builder\StylesCollection.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.106,D:\Ucheba\KPiAP\kursach\gui_builder\HTMLDocument.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\myutils.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.189,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.271,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\DocumentFormUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.010,C:\Users\Alexander\Documents\RAD Studio\Projects\Project1.cbproj=D:\Ucheba\KPiAP\kursach\gui_builder\kurs.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.355,=D:\Ucheba\KPiAP\kursach\gui_builder\ModelSupport_kurs\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.590,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.627,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.982,=D:\Ucheba\KPiAP\kursach\gui_builder\ABOUT.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.848,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.639,=C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.271,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.h=D:\Ucheba\KPiAP\kursach\gui_builder\DocumentFormUnit.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.005,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.555,C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.708,D:\Ucheba\KPiAP\kursach\gui_builder\BrowserSys.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.h=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.907,=D:\Ucheba\KPiAP\kursach\gui_builder\ModelSupport_kurs\std\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.927,=D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.018,=D:\Ucheba\KPiAP\kursach\gui_builder\ModelSupport_kurs\default.txaPackage</Transaction>
     <Transaction>1899.12.30 00:00:00.000.547,D:\Ucheba\KPiAP\kursach\gui_builder\myutils.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.555,C:\Users\Alexander\Documents\RAD Studio\Projects\Unit1.dfm=D:\Ucheba\KPiAP\kursach\gui_builder\MainWindowUnit.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.547,D:\Ucheba\KPiAP\kursach\gui_builder\myutils.h=D:\Ucheba\KPiAP\kursach\gui_builder\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.270,D:\Ucheba\KPiAP\kursach\gui_builder\Unit2.cpp=D:\Ucheba\KPiAP\kursach\gui_builder\DocumentFormUnit.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.263,D:\Ucheba\KPiAP\kursach\gui_builder\DOMTreeUnit.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.106,D:\Ucheba\KPiAP\kursach\gui_builder\HTMLDocument.h=D:\Ucheba\KPiAP\kursach\gui_builder\myutils.h</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ModelSupport_kurs"/>
+    <File Path="ModelSupport_kurs\std"/>
+    <File Path="ModelSupport_kurs\std\default.txvpck"/>
+    <File Path="ModelSupport_kurs\default.txaPackage"/>
+    <File Path="ModelSupport_kurs\default.txvpck"/>
     <File Path="Profiling"/>
     <File Path="Profiling\AQtimeModule1.aqt"/>
     <File Path="ABOUT.cpp"/>
@@ -38,9 +53,9 @@
     <File Path="MainWindowUnit.cpp"/>
     <File Path="MainWindowUnit.dfm"/>
     <File Path="MainWindowUnit.h"/>
-    <File Path="myutils.cpp"/>
-    <File Path="myutils.cpp"/>
-    <File Path="myutils.h"/>
+    <File Path="HTMLDocument.cpp"/>
+    <File Path="HTMLDocument.cpp"/>
+    <File Path="HTMLDocument.h"/>
     <File Path="BrowserSys.cpp"/>
     <File Path="BrowserSys.cpp"/>
     <File Path="BrowserSys.h"/>
@@ -50,5 +65,9 @@
     <File Path="StylesCollection.cpp"/>
     <File Path="StylesCollection.cpp"/>
     <File Path="StylesCollection.h"/>
+    <File Path="DocumentFormUnit.cpp"/>
+    <File Path="DocumentFormUnit.cpp"/>
+    <File Path="DocumentFormUnit.dfm"/>
+    <File Path="DocumentFormUnit.h"/>
   </ProjectSortOrder>
 </BorlandProject>

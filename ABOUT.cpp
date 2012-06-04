@@ -12,13 +12,11 @@ __fastcall TAboutBox::TAboutBox(TComponent* AOwner)
 {
 }
 //---------------------------------------------------------------------
-
 void __fastcall TAboutBox::FormGesture(TObject *Sender, const TGestureEventInfo &EventInfo,
           bool &Handled)
 {
-if (EventInfo.GestureID==-1) ShowMessage(L"“ут нет пасхальных €иц");
+ShowMessage(EventInfo.GestureID);
 }
 //---------------------------------------------------------------------------
-
 
 
